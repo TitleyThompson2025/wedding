@@ -24,45 +24,43 @@ body {
 }
 .header-container {
     display: flex;
+    justify-content: space-between; /* Keeps logo on the left and content on the right */
     align-items: center; /* Ensure items are vertically centered */
-    justify-content: space-between; /* Space between image and menu */
     width: 100%;
     background-color: #FFFAF1;
     padding: 5px !important; /* Adjust as necessary */
     box-sizing: border-box;
     border-bottom: 1px solid #023020;
 }
-.header-image-container {
-    /* Removed absolute positioning to keep in document flow */
-    display: flex;
-    justify-content: flex-start; /* Align image to the left */
-    align-items: center; /* Center image vertically */
-    padding: 0; /* Adjust as necessary */
-}
-.header-image-container img {
-    max-width: 150px; /* or 200px for larger screens, adjust as necessary */
-    height: auto;
-}
-.header-container:after {
-    content: "";
-    display: table;
-    clear: both;
+
+/* Example adjustment for child elements, if they have margin/padding affecting height */
+.header-image-container, .header-text-content {
+    margin: 0; /* Remove margin */
+    padding: 0; /* Adjust padding as needed */
 }
 /* Adjust padding on the body to prevent overlap */
 body {
     padding-top: 30px !important; /* Adjust based on the header's height */
 }
 
-/* Ensure .header-text-content and .hamburger-menu are correctly aligned */
 .header-text-content {
     display: flex;
     justify-content: flex-end; /* Align menu items to the right */
     align-items: center; /* Center items vertically */
+    align-self: flex-start; /* Align the menu container towards the start of the flex container */
     width: 100%;
 }
 .hamburger-menu {
     display: none; /* Initially hidden, shown on smaller screens */
 } 
+.menu-items li, .menu-items li a {
+    margin-bottom: 0; /* Reduces space below each menu item */
+    padding-bottom: 0; /* Adjust or reduce padding to move the border up */
+}
+.header-image-container img {
+    max-width: 150px; /* or 200px for larger screens */
+    height: auto;
+}
 @media (max-width: 768px) {
     .hamburger-menu {
         display: block; /* Show on smaller screens */
@@ -152,9 +150,10 @@ body {
 }
 
 /* Targeting the container of the menu */
-.top-menu,
+.top-menu, 
 .menu-items {
     border: none !important;
+    align-self: flex-start; /* This will move the menu higher in the flex container */
 }
 
 /* Targeting the list items and links directly */
@@ -243,6 +242,9 @@ ul.top-menu li {
   text-decoration: none;
   font-size: 25px;
   display: inline-block;
+  position: relative;
+  top: -100px;
+  padding-bottom: 0;
 }
 
 ul.top-menu, ul.top-menu li, ul.top-menu li a, ul.top-menu-link{
@@ -388,7 +390,49 @@ font-size: 25px;
     z-index: 5; /* Ensuring text is below the overlapping image if they are in the same box */
     position: relative; /* To apply z-index correctly */
 }
-</style></head>
+body, h2, p {
+    font-size: 1rem; /* Base font size */
+}
+
+@media (min-width: 768px) {
+    h2 {
+        font-size: 1.5rem; /* Larger font size for wider screens */
+    }
+}
+
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Flexbox for layout adjustments */
+.header-container, .responsive-box-left, .responsive-box-right {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
+}
+.header-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* Adjusted to ensure content starts from the left */
+    padding: 5px !important;
+    box-sizing: border-box;
+    border-bottom: 1px solid #023020;
+    margin-bottom: 0
+    padding-bottom: 0; /* Reducing padding at the bottom */
+    height: auto;
+}
+.header-image-container {
+    flex-grow: 0; /* Prevent the logo container from growing */
+    margin-right: auto; /* Pushes everything else to the right */
+}
+@media (min-width: 768px) {
+    .responsive-box-left, .responsive-box-right {
+        flex-direction: row; /* Side-by-side layout for wider screens */
+    }
+}
+</style>
+</head>
 <body>
   <link rel="stylesheet" type="text/css" href="styles.css">
       <div class="header-container">
@@ -422,7 +466,7 @@ font-size: 25px;
             $(".menu-items").toggle(); // Toggles visibility of the menu
         });
     });
-    </script>
+     </script>
      <div class="responsive-box-left image-left">
       <div class="box-half box-text">
         <h2>Petworth House</h2>
