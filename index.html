@@ -512,21 +512,121 @@ font-size: 25px;
   align-items: center;
   text-align: center;
   font-family: 'legrand', sans-serif;
-  font-size: calc(1vw + 1em); /* Responsive font size */
+  font-size: 16px;
   color: #023020;
-  margin: 0 10px;
-  background-color: #AED6F1;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 @media (max-width: 768px) {
   .info-box {
     width: 30vw; /* Increase size for smaller screens if needed */
     height: 30vw; /* Keep the height equal to the width */
-    font-size: calc(1.5vw + 1em); /* Slightly larger font size for small screens */
+    font-size: 16px; /* Slightly larger font size for small screens */
   }
 }
+
+
+.boxes-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
+  justify-content: space-between; /* Distributes spacing evenly */
+  align-items: stretch; /* Aligns boxes to the same height */
+  margin: 20px 0; /* Provides vertical space around the container */
+}
+
+.responsive-box {
+  flex: 1 1 30%; /* Allows boxes to grow and shrink but base at 30% */
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 10px; /* Ensures 10px margin around each box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #023020;
+  justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+    color: #567033;
+}
+
+@media (max-width: 768px) {
+  .boxes-container {
+    padding: 0 10px; /* Ensures 10px padding from the edges of the screen */
+  }
+  
+  .responsive-box {
+    flex-basis: calc(100% - 20px); /* Adjusts width to account for padding */
+    margin: 10px 0; /* Top and bottom margins remain 10px, removes left/right margins */
+  }
+}
+
+
+
+
+
+.box-half {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    margin: 0; /* Ensure there's no additional margin pushing the border out */
+}
+
+/* Specific style for the text and image containers */
+.box-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+    color: #567033;
+}
+
+.box-image-container {
+    padding: 5px; /* Creates a "border" effect around the image */
+    box-sizing: border-box;
+    background-color: #FFFAF1; /* Background color to simulate the border */
+}
+
+.box-image-left {
+     width: calc(500px); /* Adjust based on your needs */
+    height: calc( 400px); /* Making the image taller */
+    margin: -10px -10px -10px -10px; /* Negative margins to overlap the border */
+    z-index: 10; /* Ensuring the image is above the border if needed */
+    position: relative;
+    margin-left: 0 !important;
+}
+.box-image-right {
+    width: calc(500px); /* Adjust based on your needs */
+    height: calc(400px); /* Making the image taller */
+    margin: -10px -10px -10px -10px; /* Adjusted right margin to -20px to create a gap */
+    z-index: 10; /* Ensuring the image is above the border if needed */
+    position: relative;
+    margin-right: 0 !important;
+}
+
+/* New styles for swapping text and image positions in the second box */
+.image-left .box-text {
+    order: 2; /* Moves text to the right */
+}
+
+.image-left .box-image-container {
+    order: 1; /* Moves image to the left */
+}
+
+.box-text {
+    padding: 0 10px; /* Reduce padding as necessary, was originally 0 10px */
+    color: #567033; /* Existing text color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 
 
 
@@ -609,15 +709,19 @@ font-size: 25px;
       <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-6.jpg" alt="Image 6"></div>
   </div>
   <div class="boxes-container">
-    <div class="info-box" style="background-color: #fcefd7;"><p class="home-text1" id="countdown-intro">Join us to celebrate Emma & David</p></div>
-    <div class="info-box" style="background-color: #fcefd7;"><p class="home-text1" id="wedding-date">19 July 2025</p></div>
-    <div class="info-box" style="background-color: #fcefd7;"><p class="home-text1" id="countdown">509 days 4 hours 37 minutes</p></div>
-  </div>  
-              </div>
-              </div>
-              </div>
-              </div>
-        </div>
+    <div class="responsive-box">
+        <p>We're so excited to share our wedding website with you. Consider this your official guide to our wedding day and the place to find accommodation recommendations, travel instructions, the itinerary for the day and more. We can't wait to celebrate with you!</p>
+    </div>
+    <div class="responsive-box">
+        <p>19 July 2025</p>
+    </div>
+    <div class="responsive-box">
+      <div class="box-half box-text" id="countdown"><p>509 days 4 hours 37 minutes</p> 
+    </div>
+</div>
+</div>
+    </div>
+  </div>
 <script>
    function update_countdown() {
   var d = new Date();
