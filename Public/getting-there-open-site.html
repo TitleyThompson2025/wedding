@@ -142,47 +142,41 @@ body {
         display: block; /* Show hamburger icon on smaller screens */
     }
 }
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1000; /* Increased to a much higher value */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
 .modal-content {
-  background-color: #FFFAF1;;
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: var(--modal-background-color);
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  font-family: 'my-everything', woff;
-  font-size: 25px;
-  text-decoration: none; /* Removes underline */
-  cursor: default; /* Changes cursor to default instead of pointer */
-  color: #567033; /* Change this to match your regular text color */
-  pointer-events: none; /* Prevents clicking on the link */
+  width: 80%;
+}
+/* Additional CSS to ensure menu-items are hidden when modal is displayed */
+.modal-open .menu-items {
+    display: none !important;
 }
 /* Modal Link Styling */
 #myModal .modal-content a {
-    color: #333; /* Dark gray color */
-    text-decoration: none; /* Removes underline */
-    cursor: pointer; /* Ensures cursor changes to pointer to indicate link */
+    color: #567033; /* Matches the primary text color used elsewhere */
+    text-decoration: underline; /* Removes underline */
+    cursor: pointer; /* Retains the pointer to indicate clickability */
 }
 
 #myModal .modal-content a:hover, 
 #myModal .modal-content a:focus {
-    color: #444; /* Slightly darker color on hover/focus for feedback */
-    text-decoration: underline; /* Optional: Adds underline on hover/focus for visual feedback */
+    color: #6c757d; /* Darker shade for hover/focus states */
+    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
 }
-
 /* The Close Button */
 .close {
   color: #567033;
@@ -432,22 +426,7 @@ font-size: 25px;
 .image2:nth-child(even) {
     align-self: flex-start; /* Even images will align to the top */
 }
-/* Additional CSS to ensure menu-items are hidden when modal is displayed */
-.modal-open .menu-items {
-    display: none !important;
-}
-/* Modal Link Styling */
-#myModal .modal-content a {
-    color: #567033; /* Matches the primary text color used elsewhere */
-    text-decoration: underline; /* Removes underline */
-    cursor: pointer; /* Retains the pointer to indicate clickability */
-}
 
-#myModal .modal-content a:hover, 
-#myModal .modal-content a:focus {
-    color: #6c757d; /* Darker shade for hover/focus states */
-    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
-}
 .text-content-container {
     width: 100%; /* Ensures the container spans the full width of the screen */
     padding: 20px; /* Adds some padding inside the container for better readability */
@@ -483,32 +462,61 @@ font-size: 25px;
       <link rel="stylesheet" type="text/css" href="styles.css">
       <div class="header-container">
         <div class="header-image-container">
-          <img src="../Assests/Images/logo/ed-high-resolution-logo.png"  
+          <img src="../assests/Images/logo/ed-high-resolution-logo.png"  
           alt="a figure of a couple in a wedding dress and suit, with the letters E and D beneath, below this the thrase Wedding 2025 is shown"
            id="top-left-image" class="color-overlay">
       </div>
         <div class="header-text-content">
-    <div class="hamburger-menu"></div>
+    <div class="hamburger-menu">&#9776;</div>
       <div class="top-menu">
         <ul>
           <div class="menu-items">
             <li><a href="../index.html" class="top-menu-link">Home</a></li>
             <li><a href="./Theday.html" class="top-menu-link">The Day</a></li>
-            <li><a href="./Acommodation.html" class="top-menu-link">Accomodation</a></li>
+            <li><a href="./Acommodation.html" class="top-menu-link">Accommodation</a></li>
             <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In The Area</a></li>
             <li><a href="./RSVP.html" class="top-menu-link">RSVP</a></li>
           </div>
         </ul>
       </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./Public/Theday.html">The Day</a></li>
+            <li><a href="./Public/Acommodation.html">Accommodation</a></li>
+            <li><a href="./Public/Inthearea.hmtl">In The Area</a></li>
+            <li><a href="./Public/RSVP.html">RSVP</a></li>
+          </ul>
+        </div>
+      </div>
       </div>
       </div>
       <script>
         $(document).ready(function(){
-            $(".hamburger-menu").click(function(){
-                $(".menu-items").toggle(); // Toggles visibility of the menu
-            });
-        });
-        </script>
+       $(".hamburger-menu").click(function(event){
+           event.stopPropagation(); // Prevents triggering any parent event handlers
+           $("#myModal").css('display', 'block');  // Open the modal
+           return false; // Stops the event from propagating further
+       });
+    
+       $(".close").click(function(){
+           $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+       });
+    
+       // Close modal when clicking outside of it
+       $(window).click(function(event) {
+           if($(event.target).hasClass('modal')) {
+               $("#myModal").css('display', 'none');
+           }
+       });
+    
+       // Optional: Dynamically set the modal background from a JavaScript variable
+       var modalBackgroundColor = '#ffffff';  // Example: white background
+       document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
+    });
+       </script>
   <h></h>
         <div id="mapid" style="height: 400px;"></div>    
 <script>
@@ -519,23 +527,21 @@ font-size: 25px;
   }).addTo(mymap);
   L.marker([50.985262571615806, -0.4928652683922126]).addTo(mymap).bindPopup('Two Woods Estate').openPopup();
 </script>
-       </div>
-       </div>
         <div class="text">
     </div>
       <div class="image-container">
         <div class="image">
-          <img src="../Assests/Images/Train/Emma thai train.jpg" alt="Redwood forest with sunlight filtering through"></div>
+          <img src="../assests/Images/train/Emma thai train.jpg" alt="Redwood forest with sunlight filtering through"></div>
         <div class="image">
-          <img src="../Assests/Images/Train/bluebell railway.jpg" alt="Image 2"></div>
+          <img src="../assests/Images/train/bluebell railway.jpg" alt="Image 2"></div>
         <div class="image">
-          <img src="../Assests/Images/Train/David train door thiai.JPG" alt="Image 3"></div>
+          <img src="../assests/Images/Train/David train door thiai.JPG" alt="Image 3"></div>
         <div class="image">
-          <img src="../Assests/Images/Train/Eurostar.JPG" alt="Image 4"></div>
+          <img src="../assests/Images/Train/Eurostar.JPG" alt="Image 4"></div>
         <div class="image">
-          <img src="../Assests/Images/Train/Thai train market.PNG" alt="Image 5"></div>
+          <img src="../assests/Images/Train/Thai train market.PNG" alt="Image 5"></div>
         <div class="image">
-          <img src="../Assests/Images/Train/Emma train sri lanka.JPG" alt="Image 6"></div>
+          <img src="../assests/Images/Train/Emma train sri lanka.JPG" alt="Image 6"></div>
       </div>
       <div class="text-content-container">
         <h3>By Rail:</h3>
@@ -548,17 +554,17 @@ font-size: 25px;
     </div>
       <div class="image-container">
         <div class="image">
-          <img src="../Assests/Images/Car/Thailand scooter.jpg" alt="Redwood forest with sunlight filtering through"></div>
+          <img src="../assests/Images/car/Thailand scooter.jpg" alt="Redwood forest with sunlight filtering through"></div>
         <div class="image">
-          <img src="../Assests/Images/Car/Nepal path.jpg" alt="Image 2"></div>
+          <img src="../assests/Images/Car/Nepal path.jpg" alt="Image 2"></div>
         <div class="image">
-          <img src="../Assests/Images/Car/Us bangkok bikeride.jpg" alt="Image 3"></div>
+          <img src="../assests/Images/Car/Us bangkok bikeride.jpg" alt="Image 3"></div>
         <div class="image">
-          <img src="../Assests/Images/Car/tuktuk jaipur gate.jpg" alt="Image 4"></div>
+          <img src="../assests/Images/Car/tuktuk jaipur gate.jpg" alt="Image 4"></div>
         <div class="image">
-          <img src="../Assests/Images/Car/Both kayaking.JPG" alt="Image 5"></div>
+          <img src="../assests/Images/Car/Both kayaking.JPG" alt="Image 5"></div>
         <div class="image">
-          <img src="../Assests/Images/Car/Emma phuket old town.jpg" alt="Image 6"></div>
+          <img src="../assests/Images/Car/Emma phuket old town.jpg" alt="Image 6"></div>
       </div>
       <div class="text-content-container">
         <h3>By Road:</h3>
@@ -578,8 +584,6 @@ font-size: 25px;
             <p>In both cases, follow the lane for a few miles, and the venue will be on your right.</p>
         </div>
     </div>
-       </div>
-       </div>
 </body>
 </html>
 
