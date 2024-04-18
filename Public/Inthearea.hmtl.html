@@ -22,38 +22,47 @@ body {
   background-color: #FFFAF1;
   padding-top: 60px; /* Adjust this value based on your header's height */
 }
+
 .header-container {
     display: flex;
     justify-content: space-between; /* Keeps logo on the left and content on the right */
-    align-items: center; /* Ensure items are vertically centered */
     width: 100%;
     background-color: #FFFAF1;
-    padding: 5px !important; /* Adjust as necessary */
+    padding: 0px !important; /* Adjust as necessary */
     box-sizing: border-box;
     border-bottom: 1px solid #023020;
+    position: relative;
 }
-
 /* Example adjustment for child elements, if they have margin/padding affecting height */
 .header-image-container, .header-text-content {
     margin: 0; /* Remove margin */
     padding: 0; /* Adjust padding as needed */
 }
-/* Adjust padding on the body to prevent overlap */
-body {
-    padding-top: 30px !important; /* Adjust based on the header's height */
-}
 
 .header-text-content {
     display: flex;
-    justify-content: flex-end; /* Align menu items to the right */
-    align-items: center; /* Center items vertically */
-    align-self: flex-start; /* Align the menu container towards the start of the flex container */
+    justify-content: flex-end;
+    align-self: flex-start;
     width: 100%;
+    margin-top: 50px; /* Add or increase this value to move the entire menu block down */
+    padding-right: 0; 
 }
 .hamburger-menu {
     display: none; /* Initially hidden, shown on smaller screens */
 } 
+.menu-items {
+    display: flex;  /* Assuming it's set to display as needed */
+    margin-top: 100px; /* Increase this value to push the menu items further down */
+    margin-right: 0; /* Reduces space at the right end of the menu */
+    padding: 0; /* Adjust padding as necessary */
+    white-space: nowrap;
+}
 .menu-items li, .menu-items li a {
+    margin-bottom: 0; /* Reduces space below each menu item */
+    padding-bottom: 0; /* Adjust or reduce padding to move the border up */
+}
+.menu-items li:last-child {
+    margin-right: 0; /* Removes margin on the right of the last item */
     margin-bottom: 0; /* Reduces space below each menu item */
     padding-bottom: 0; /* Adjust or reduce padding to move the border up */
 }
@@ -64,6 +73,11 @@ body {
 @media (max-width: 768px) {
     .hamburger-menu {
         display: block; /* Show on smaller screens */
+        position: absolute;  /* Absolute positioning to place it specifically */
+        top: 20px;  /* 10 pixels above the top boundary of the container */
+        right: 20px;  /* 10 pixels to the right of the right boundary of the container */
+        display: block;
+        color: #567033;
     }
     .menu-items {
         display: none; /* Hide menu items, show hamburger menu */
@@ -77,7 +91,7 @@ body {
 
     /* Adjust padding-top of body based on the new header height */
     body {
-        padding-top: 210px; /* Adjust based on actual header height */
+        padding-top: 30px; /* Adjust based on actual header height */
     }
 }
 .hamburger-menu {
@@ -93,45 +107,40 @@ body {
         display: block; /* Show hamburger icon on smaller screens */
     }
 }
-/* The Modal (background) */
+:root {
+    --modal-background-color: #f2f2f2;  /* Configurable background color */
+}
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed;
+  z-index: 10; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
 .modal-content {
-  background-color: #FFFAF1;;
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: var(--modal-background-color);
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  font-family: 'FontAwesome', woff;
-  font-size: 25px;
-  text-decoration: none; /* Removes underline */
-  cursor: default; /* Changes cursor to default instead of pointer */
-  color: #567033; /* Change this to match your regular text color */
-  pointer-events: none; /* Prevents clicking on the link */
+  width: 80%;
 }
+
 /* Modal Link Styling */
 #myModal .modal-content a {
-    color: #333; /* Dark gray color */
-    text-decoration: none; /* Removes underline */
-    cursor: pointer; /* Ensures cursor changes to pointer to indicate link */
+    color: #567033; /* Matches the primary text color used elsewhere */
+    text-decoration: underline; /* Removes underline */
+    cursor: pointer; /* Retains the pointer to indicate clickability */
 }
 
 #myModal .modal-content a:hover, 
 #myModal .modal-content a:focus {
-    color: #444; /* Slightly darker color on hover/focus for feedback */
-    text-decoration: underline; /* Optional: Adds underline on hover/focus for visual feedback */
+    color: #6c757d; /* Darker shade for hover/focus states */
+    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
 }
 
 /* The Close Button */
@@ -284,19 +293,6 @@ font-size: 25px;
   color: #567033;
   text-align: center;
   }
- 
-/* Modal Link Styling */
-#myModal .modal-content a {
-    color: #567033; /* Matches the primary text color used elsewhere */
-    text-decoration: underline; /* Removes underline */
-    cursor: pointer; /* Retains the pointer to indicate clickability */
-}
-
-#myModal .modal-content a:hover, 
-#myModal .modal-content a:focus {
-    color: #6c757d; /* Darker shade for hover/focus states */
-    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
-}
 
 /* Style for the outer box */
 .responsive-box-left{
@@ -349,6 +345,7 @@ font-size: 25px;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    margin-top: 10px;
     padding: 0 10px;
     color: #567033;
 }
@@ -357,6 +354,10 @@ font-size: 25px;
     padding: 20px; /* Creates a "border" effect around the image */
     box-sizing: border-box;
     background-color: #FFFAF1; /* Background color to simulate the border */
+}
+.box-image-container img {
+    width: 800px;  /* Fixed width for the box images */
+    height: 550px;  /* Fixed height for the box images */
 }
 
 .box-image-left {
@@ -394,43 +395,53 @@ body, h2, p {
     font-size: 1rem; /* Base font size */
 }
 
-@media (min-width: 768px) {
-    h2 {
-        font-size: 1.5rem; /* Larger font size for wider screens */
-    }
-}
-
-/* Make images responsive */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Flexbox for layout adjustments */
-.header-container, .responsive-box-left, .responsive-box-right {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically on small screens */
-}
-.header-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between; /* Adjusted to ensure content starts from the left */
-    padding: 5px !important;
-    box-sizing: border-box;
-    border-bottom: 1px solid #023020;
-    margin-bottom: 0
-    padding-bottom: 0; /* Reducing padding at the bottom */
-    height: auto;
-}
-.header-image-container {
-    flex-grow: 0; /* Prevent the logo container from growing */
-    margin-right: auto; /* Pushes everything else to the right */
-}
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .responsive-box-left, .responsive-box-right {
-        flex-direction: row; /* Side-by-side layout for wider screens */
+        border-left: 1px solid #023020;  /* Adds left border */
+        border-right: 1px solid #023020; /* Adds right border */  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #023020; /* Ensure border surrounds the box */
+        padding: 20px;
+        margin: 50px 20px; /* Adds top and bottom margin for spacing, side margins for centering */
+        height: auto;
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+    }
+
+    .box-half {
+        width: 100%; /* Full width of the parent container */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        box-sizing: border-box; /* Ensures padding is included in the calculated width/height */
+    }
+
+    .box-image-container {
+        width: 100%; /* Ensures the image container takes full width */
+        margin-bottom: 30px; /* Ample space between image and text */
+        height: 200px; /* Initial height, adjust this value to crop more or less */
+        overflow: hidden;
+    }
+
+    .box-image-container img {
+        width: 100%; /* Image fills the container */
+        height: auto; /* Keeps the aspect ratio intact */
+    }
+
+    .box-text {
+        text-align: center;
+        padding: 20px; 
+        margin-top: 20px;
+    }
+
+    /* Ensure container adapts to text size */
+    .responsive-box-left, .responsive-box-right {
+        flex-grow: 1; /* Allows the box to grow as needed based on content */
     }
 }
+
 </style>
 </head>
 <body>
@@ -454,20 +465,52 @@ img {
                   </div>
                   </ul>
               </div>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./Theday.html">The Day</a></li>
+                    <li><a href="./getting-there-open-site.html">Getting There</a></li>
+                    <li><a href="./Accommodation">Accommodation</a></li>
+                    <li><a href="./RSVP.html">RSVP</a></li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+      </div>
+      <script>
+     $(document).ready(function(){
+    $(".hamburger-menu").click(function(event){
+        event.stopPropagation(); // Prevents triggering any parent event handlers
+        $("#myModal").css('display', 'block');  // Open the modal
+        return false; // Stops the event from propagating further
+    });
+
+    $(".close").click(function(){
+        $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+    });
+
+    // Close modal when clicking outside of it
+    $(window).click(function(event) {
+        if($(event.target).hasClass('modal')) {
+            $("#myModal").css('display', 'none');
+        }
+    });
+
+    // Optional: Dynamically set the modal background from a JavaScript variable
+    var modalBackgroundColor = '#ffffff';  // Example: white background
+    document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
+});
+    </script>
         </div>
     </div>
     </div>
   </div>
   <div>
   </div>
-  <script>
-    $(document).ready(function(){
-        $(".hamburger-menu").click(function(){
-            $(".menu-items").toggle(); // Toggles visibility of the menu
-        });
-    });
-     </script>
      <div class="responsive-box-left image-left">
+      <br>
       <div class="box-half box-text">
         <h2>Petworth House</h2>
         <p>Petworth House, a Grade I listed mansion, is the centrepiece of this remarkable estate. Built in the late 17th century, with later additions in the 18th and 19th centuries, it epitomizes the grandeur of English country estates. The house has been home to the Percy family, the Earls of Northumberland, for over 900 years, and its walls resonate with stories of aristocratic life, political intrigue, and cultural patronage.
@@ -481,6 +524,7 @@ img {
   </div>
        <div class="responsive-box-right image-right">
         <div class="box-half box-text">
+          <h></h>
           <h2>Arundel Castle</h2>
             <p>Arundel Castle’s story begins nearly a millennium ago, with its construction commencing in the 11th century by Roger de Montgomery, Earl of Arundel, shortly after the Norman Conquest of England. Since then, the castle has witnessed a myriad of historical events, from the turbulence of medieval conflicts to the opulence of the Renaissance and beyond.</p>
               <p>Over the centuries, Arundel Castle has been home to many influential families, including the Fitzalans, and the Dukes of Norfolk. Each generation left its mark on the castle, expanding and enhancing its structure and splendour. Today, the castle remains the ancestral home of the Duke of Norfolk, one of the premier noble titles in England.</p>
@@ -502,8 +546,3 @@ img {
     <img src="../Assests/Images/in the area/weald-and-downland-living-museum_4_188455-163051433610911-2.webp" alt="Your Image Description" class="box-image-left">
   </div>
 </div>
-
-
-
-
-
