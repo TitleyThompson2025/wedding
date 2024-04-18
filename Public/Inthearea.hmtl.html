@@ -480,28 +480,29 @@ body, h2, p {
         </div>
       </div>
       <script>
-     $(document).ready(function(){
-    $(".hamburger-menu").click(function(event){
-        event.stopPropagation(); // Prevents triggering any parent event handlers
-        $("#myModal").css('display', 'block');  // Open the modal
-        return false; // Stops the event from propagating further
+        $(document).ready(function(){
+       $(".hamburger-menu").click(function(event){
+           event.stopPropagation(); // Prevents triggering any parent event handlers
+           $("#myModal").css('display', 'block');  // Open the modal
+           return false; // Stops the event from propagating further
+       });
+    
+       $(".close").click(function(){
+           $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+       });
+    
+       // Close modal when clicking outside of it
+       $(window).click(function(event) {
+           if($(event.target).hasClass('modal')) {
+               $("#myModal").css('display', 'none');
+           }
+       });
+    
+       // Optional: Dynamically set the modal background from a JavaScript variable
+       var modalBackgroundColor = '#ffffff';  // Example: white background
+       document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
     });
-
-    $(".close").click(function(){
-        $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
-    });
-
-    // Close modal when clicking outside of it
-    $(window).click(function(event) {
-        if($(event.target).hasClass('modal')) {
-            $("#myModal").css('display', 'none');
-        }
-    });
-
-    // Optional: Dynamically set the modal background from a JavaScript variable
-    var modalBackgroundColor = '#ffffff';  // Example: white background
-    document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
-});
+       </script>
     </script>
         </div>
     </div>
