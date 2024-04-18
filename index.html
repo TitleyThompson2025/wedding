@@ -60,6 +60,7 @@ body {
 }
 .hamburger-menu {
     display: none; /* Initially hidden, shown on smaller screens */
+    color: #567033;
 } 
 @media (max-width: 768px) {
     .hamburger-menu {
@@ -94,42 +95,40 @@ body {
     }
 }
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed;
+  z-index: 10; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-  background-color: #FFFAF1;;
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: var(--modal-background-color);
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  font-family: 'my-everything', woff;
-  font-size: 25px;
-  text-decoration: none; /* Removes underline */
-  cursor: default; /* Changes cursor to default instead of pointer */
-  color: #567033; /* Change this to match your regular text color */
-  pointer-events: none; /* Prevents clicking on the link */
+  width: 80%;
 }
 
+/* Modal Link Styling */
 #myModal .modal-content a {
-    color: #333; /* Dark gray color */
-    text-decoration: none; /* Removes underline */
-    cursor: pointer; /* Ensures cursor changes to pointer to indicate link */
+    color: #567033; /* Matches the primary text color used elsewhere */
+    text-decoration: underline; /* Removes underline */
+    cursor: pointer; /* Retains the pointer to indicate clickability */
 }
 
 #myModal .modal-content a:hover, 
 #myModal .modal-content a:focus {
-    color: #444; /* Slightly darker color on hover/focus for feedback */
-    text-decoration: underline; /* Optional: Adds underline on hover/focus for visual feedback */
+    color: #567033; /* Darker shade for hover/focus states */
+    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
+}
+/* Additional CSS to ensure menu-items are hidden when modal is displayed */
+.modal-open .menu-items {
+    display: none !important;
 }
 
 /* The Close Button */
@@ -391,22 +390,7 @@ font-size: 25px;
 .image2:nth-child(even) {
     align-self: flex-start; /* Even images will align to the top */
 }
-/* Additional CSS to ensure menu-items are hidden when modal is displayed */
-.modal-open .menu-items {
-    display: none !important;
-}
-/* Modal Link Styling */
-#myModal .modal-content a {
-    color: #567033; /* Matches the primary text color used elsewhere */
-    text-decoration: underline; /* Removes underline */
-    cursor: pointer; /* Retains the pointer to indicate clickability */
-}
 
-#myModal .modal-content a:hover, 
-#myModal .modal-content a:focus {
-    color: #6c757d; /* Darker shade for hover/focus states */
-    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
-}
 .image-container3 {
     display: flex;
     flex-wrap: wrap; /* This allows items to wrap to the next line */
@@ -526,7 +510,6 @@ font-size: 25px;
   }
 }
 
-
 .boxes-container {
   display: flex;
   flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
@@ -561,10 +544,6 @@ font-size: 25px;
     margin: 10px 0; /* Top and bottom margins remain 10px, removes left/right margins */
   }
 }
-
-
-
-
 
 .box-half {
     flex: 1;
@@ -640,7 +619,7 @@ font-size: 25px;
              id="top-left-image" class="color-overlay">
         </div>
         <div class="header-text-content">
-          <div class="hamburger-menu"></div> 
+          <div class="hamburger-menu">&#9776;</div> 
             <div class="top-menu">
               <ul>
                 <div class="menu-items">
@@ -654,6 +633,18 @@ font-size: 25px;
                   </div>
                   </ul>
               </div>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./Theday.html">The Day</a></li>
+                    <li><a href="./getting-there-open-site.html">Getting There</a></li>
+                    <li><a href="./Accommodation">Accommodation</a></li>
+                    <li><a href="./RSVP.html">RSVP</a></li>
+                  </ul>
+                </div>
+              </div>
         </div>
     </div>
     </div>
@@ -662,37 +653,28 @@ font-size: 25px;
   </div>
   <script>
     $(document).ready(function(){
-    $(".hamburger-menu").click(function(){
-        // Open the modal
-        $("#myModal").css("display", "block");
-        $("body").addClass("modal-open"); // Add class to body
-    });
+   $(".hamburger-menu").click(function(event){
+       event.stopPropagation(); // Prevents triggering any parent event handlers
+       $("#myModal").css('display', 'block');  // Open the modal
+       return false; // Stops the event from propagating further
+   });
 
-    $(".close").click(function(){
-        $("#myModal").css("display", "none");
-        $("body").removeClass("modal-open"); // Remove class from body
-    });
+   $(".close").click(function(){
+       $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+   });
 
-   // If the user clicks anywhere outside of the modal content, close it
-   window.onclick = function(event) {
-        if (event.target == document.getElementById('myModal')) {
-            $("#myModal").css("display", "none");
-        }
-    };
+   // Close modal when clicking outside of it
+   $(window).click(function(event) {
+       if($(event.target).hasClass('modal')) {
+           $("#myModal").css('display', 'none');
+       }
+   });
+
+   // Optional: Dynamically set the modal background from a JavaScript variable
+   var modalBackgroundColor = '#ffffff';  // Example: white background
+   document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
 });
-    </script>
-    <!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <ul>
-      <li><a href="#">The Day</a></li>
-      <li><a href="#">Getting There</a></li>
-      <li><a href="#">Accommodation</a></li>
-      <li><a href="#">Contacts</a></li>
-    </ul>
-  </div>
+   </script>
 </div>  
   <div class="image-container">
     <div class="image">
