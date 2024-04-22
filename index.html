@@ -227,7 +227,7 @@ body {
 }
 
 .modal-content {
-  background-color: var(--modal-background-color);
+  background-color: #ffffff; 
   margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -512,7 +512,7 @@ color: #567033;
         display: block;
         position: absolute;
         right: 15px;
-        top: 15px;
+        top: 37px;
     }
     .menu-items {
         display: none; /* Hide menu items, show hamburger menu */
@@ -525,14 +525,6 @@ color: #567033;
     }
     .countdown-content {
         font-size: 18px; /* Smaller font size for smaller screens */
-    }
-    .image2 {
-       flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
-    }
-    .image-container3 .image3, .image-container4 .image4 {
-        flex-basis: 100%; /* Full width on smaller screens */
-        max-width: 100%; /* Ensure max width is not limiting */
-        object-fit: contain;
     }
     .event-info-container {
         flex-direction: column; /* Stacks the containers vertically on smaller screens */
@@ -573,6 +565,14 @@ color: #567033;
         margin-left: -30px;
         margin-top: -30px;
     }
+    .image2 {
+       flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+    }
+    .image-container3 .image3, .image-container4 .image4 {
+        flex-basis: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Ensure max width is not limiting */
+        object-fit: contain;
+    }
 }
 
 
@@ -580,10 +580,18 @@ color: #567033;
 /* Screen size smaller than 480px */
 
 /* Media query for very small screens, like small smartphones */
-@media (max-width: 480px) {
+@media (max-width: 425px) {
   .home-text1 {
     font-size: 16px; /* Even smaller font size for very small screens */
   }
+  .image2 {
+       flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+    }
+    .image-container3 .image3, .image-container4 .image4 {
+        flex-basis: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Ensure max width is not limiting */
+        object-fit: contain;
+    }
 }
  
 
@@ -595,6 +603,14 @@ color: #567033;
     .header-image-container{
         margin-left: -30px;
         margin-top: -30px;
+    }
+    .image2 {
+       flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+    }
+    .image-container3 .image3, .image-container4 .image4 {
+        flex-basis: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Ensure max width is not limiting */
+        object-fit: contain;
     }
 }
 
@@ -716,27 +732,39 @@ color: #567033;
   </div>
   <script>
     $(document).ready(function(){
-   $(".hamburger-menu").click(function(event){
-       event.stopPropagation(); // Prevents triggering any parent event handlers
-       $("#myModal").css('display', 'block');  // Open the modal
-       return false; // Stops the event from propagating further
-   });
+    // Function to adjust layout for responsive behavior
+    function adjustLayout() {
+        // This function can contain responsive adjustments unrelated to the modal
+        // Since you want the modal CSS untouched, we won't modify anything related to it here
+    }
 
-   $(".close").click(function(){
-       $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
-   });
+    // Initial call to set everything up correctly
+    adjustLayout();
 
-   // Close modal when clicking outside of it
-   $(window).click(function(event) {
-       if($(event.target).hasClass('modal')) {
-           $("#myModal").css('display', 'none');
-       }
-   });
+    // Handling the hamburger menu interactions
+    $(".hamburger-menu").click(function(event){
+        event.stopPropagation(); // Prevents triggering any parent event handlers
+        $("#myModal").css('display', 'block');  // Open the modal
+        return false; // Stops the event from propagating further
+    });
 
-   // Optional: Dynamically set the modal background from a JavaScript variable
-   var modalBackgroundColor = '#ffffff';  // Example: white background
-   document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
+    $(".close").click(function(){
+        $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+    });
+
+    // Close modal when clicking outside of it
+    $(window).click(function(event) {
+        if($(event.target).hasClass('modal')) {
+            $("#myModal").css('display', 'none');
+        }
+    });
+
+    // Respond to window resizing
+    $(window).resize(function() {
+        adjustLayout(); // Adjust the layout when the window is resized
+    });
 });
+
    </script>
 </div>  
   <div class="image-container">
