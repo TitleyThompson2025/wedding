@@ -13,13 +13,16 @@
   font-family: 'legrand';
   src: url('') format('truetype');
 }
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'legrand', 'regluar' ;
-  background-color: #FFFAF1;
-  padding-top: 60px; /* Adjust this value based on your header's height */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+
+/*Header*/
+
 .header-container {
     display: flex;
     align-items: center; /* Ensure items are vertically centered */
@@ -36,64 +39,181 @@ body {
     justify-content: flex-start; /* Align image to the left */
     align-items: center; /* Center image vertically */
     padding: 0; /* Adjust as necessary */
+    margin-left: -30px;
+    margin-top: -30px;
+    margin-right: -30px;
 }
 .header-image-container img {
     max-width: 150px; /* or 200px for larger screens, adjust as necessary */
     height: auto;
 }
+
 .header-container:after {
     content: "";
     display: table;
     clear: both;
 }
-/* Adjust padding on the body to prevent overlap */
-body {
-    padding-top: 30px !important; /* Adjust based on the header's height */
-}
 
-/* Ensure .header-text-content and .hamburger-menu are correctly aligned */
 .header-text-content {
     display: flex;
     justify-content: flex-end; /* Align menu items to the right */
     align-items: center; /* Center items vertically */
     width: 100%;
 }
-.hamburger-menu {
-    display: none; /* Initially hidden, shown on smaller screens */
-    color: #567033;
-} 
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block; /* Show on smaller screens */
-    }
-    .menu-items {
-        display: none; /* Hide menu items, show hamburger menu */
+.header-container, .image-container, .text-content-container, .modal-content {
+    max-width: 100%; /* Ensures no element is wider than the viewport */
 }
-    }
-/* For larger screens, adjust the size of the header image */
-@media (min-width: 1024px) {
-    .header-image-container img {
-        max-width: 200px; /* Larger image on larger screens */
-    }
 
-    /* Adjust padding-top of body based on the new header height */
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
-    }
+
+/* Top Menu */
+
+.top-menu {
+    background-color: #FFFAF1;
+    white-space: nowrap;  /* Prevents wrapping of menu items */
+    width: 100%;
+    overflow-x: hidden;
 }
+
+/* Targeting the container of the menu */
+.top-menu,
+.menu-items {
+    border: none !important;
+}
+
+/* Targeting the list items and links directly */
+.top-menu li,
+.top-menu li a,
+.top-menu-link {
+    border: none !important;
+    border-bottom: none !important; /* Specifically removing bottom borders if they were set */
+}
+
+/* Ensuring no underlines or borders from link hover states */
+.top-menu li a:hover,
+.top-menu-link:hover {
+    border: none !important;
+    border-bottom: none !important;
+    text-decoration: none; /* Removing underline on hover to clean up appearance */
+}
+.top-text .text-content { 
+  font-family: 'my-everything', woff;
+}
+.top-text{
+  background-color: #FFFAF1;
+  overflow: hidden;
+}
+.text-content, .menu-items {
+    text-align: center;
+}
+.top-text .text-content {
+  padding: 0px;
+  font-size: 30px;
+  color: #567033;
+}
+.resize-image {
+  width: 150px;  /* Adjust the width as desired */
+  height: auto;  /* Keeps the aspect ratio intact */
+}
+.top-left-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top-menu-link {
+color: #567033;
+  background-color: #FFFAF1;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Reset some default browser styles */
+ul, li, a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* Remove list styles */
+ul {
+    list-style: none;
+}
+
+/* Make list items and links into block-level elements */
+ul.top-menu li {
+  display: inline-block;  /* Makes each item inline but block for formatting */
+    margin-right: 10px !important; /* Keeps space between items */
+    white-space: nowrap;
+    text-decoration: none;
+    color: #023020;
+    padding: 10px;
+}
+.top-menu li {
+  color: #567033;
+  text-align: right;
+  text-orientation: horizontal;
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 25px;
+  display: inline-block;
+}
+
+ul.top-menu, ul.top-menu li, ul.top-menu li a, ul.top-menu-link{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+ul.top-menu-link{
+    color: #567033;
+    background-color: #FFFAF1; 
+    outline: none;
+}
+.top-menu li a:hover {
+  background-color: #FFFAF1;
+  color: black;
+}
+.top-menu-link:hover {
+  background-color: #567033;
+  color: green;
+}
+
+
+
+
+
+/*Body*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'legrand', 'regluar' ;
+  background-color: #FFFAF1;
+  padding-top: 30px !important; /* Adjust based on the header's height */
+  position: relative; /* This makes the body the reference point for absolute positioning */
+}
+
+
+
+
+/* Hamburger */
+
 .hamburger-menu {
     display: none; /* Hidden by default */
     font-size: 40px; /* Icon size */
     cursor: pointer; /* Indicates it's clickable */
-}
-@media (max-width: 768px) {
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger icon on smaller screens */
-    }
-}
+    color: #567033; 
+    display: none; /* Initially hidden, shown on smaller screens */
+    justify-content: flex-end; /* Align menu items to the right */
+    align-items: right;
+  } 
+
+
+
+/* Modal */
+
 .modal {
   display: none; 
   position: fixed;
@@ -130,7 +250,6 @@ body {
 .modal-open .menu-items {
     display: none !important;
 }
-
 /* The Close Button */
 .close {
   color: #567033;
@@ -146,126 +265,10 @@ body {
   cursor: pointer;
 }
 
-/* Targeting the container of the menu */
-.top-menu,
-.menu-items {
-    border: none !important;
-}
 
-/* Targeting the list items and links directly */
-.top-menu li,
-.top-menu li a,
-.top-menu-link {
-    border: none !important;
-    border-bottom: none !important; /* Specifically removing bottom borders if they were set */
-}
 
-/* Ensuring no underlines or borders from link hover states */
-.top-menu li a:hover,
-.top-menu-link:hover {
-    border: none !important;
-    border-bottom: none !important;
-    text-decoration: none; /* Removing underline on hover to clean up appearance */
-}
-body {
-  background-color: ; /* Your site's background color */
-}
-.top-text .text-content { 
-  font-family: 'my-everything', woff;
-}
-.top-text{
-  background-color: #FFFAF1;
-  overflow: hidden;
-}
-.text-content, .menu-items {
-    text-align: center;
-}
-.top-text .text-content {
-  padding: 0px;
-  font-size: 30px;
-  color: #567033;
-}
-body {
-  position: relative; /* This makes the body the reference point for absolute positioning */
-}
-.resize-image {
-  width: 150px;  /* Adjust the width as desired */
-  height: auto;  /* Keeps the aspect ratio intact */
-}
-top-left-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.top-menu-link {
-color: #567033;
-  background-color: #FFFAF1;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
+/* countdown */
 
-/* Reset some default browser styles */
-ul, li, a {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-}
-
-/* Remove list styles */
-ul {
-    list-style: none;
-}
-
-/* Make list items and links into block-level elements */
-ul.top-menu li {
-    display: inline;
-    margin-right: 20px;
-}
-/* Style the links */
-ul.top-menu li {
-    text-decoration: none;
-    color: #023020;
-    padding: 10px;
-}
-.top-menu li {
-  color: #567033;
-  text-align: right;
-  text-orientation: horizontal;
-  padding: 20px 30px;
-  text-decoration: none;
-  font-size: 25px;
-  display: inline-block;
-}
-
-ul.top-menu, ul.top-menu li, ul.top-menu li a, ul.top-menu-link{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-ul.top-menu-link{
-    color: #567033;
-    background-color: #FFFAF1; 
-    outline: none;
-}
-.top-menu li a:hover {
-  background-color: #FFFAF1;
-  color: black;
-}
-.top-menu-link:hover {
-  background-color: #567033;
-  color: green;
-}
-.top-menu {
-  background-color: #FFFAF1;
-}
-.content {
-  margin-top: 20px;
-  padding: 20px;
-}
 .countdown-content {
 color: #567033;
   text-align: center;
@@ -278,41 +281,23 @@ color: #567033;
   flex-grow: 1;
   flex-basis: auto;
   }
-  @media (max-width: 768px) {
-  .countdown-content {
-    font-size: 18px; /* Smaller font size for smaller screens */
-  }
-}
-  .img {
-  background-color: #FFFAF1;
-  -ms-flex-item-align: center;
-  orientation: horizontal;
-  padding: 20px 30px;
-  }
-.home-text {
-font-size: 25px;
-  color: #567033;
-  text-align: center;
-  }
-  .home-text1 {
-  font-size: 25px; /* Default font size for larger screens */
-  color: #567033;
-  text-align: center;
+
+  .event-info-container {
+    display: flex;
+    align-items: center; /* Adjusts vertical alignment */
+    justify-content: space-between; /* Manages spacing between the two containers */
+    flex-wrap: wrap;
 }
 
-/* Media query for tablets and small screens */
-@media (max-width: 768px) {
-  .home-text1 {
-    font-size: 20px; /* Smaller font size for smaller screens */
-  }
+.countdown-content {
+    flex: 1; /* Gives equal width, adjust as needed */
+    padding: 15px; /* Optional padding */
 }
 
-/* Media query for very small screens, like small smartphones */
-@media (max-width: 480px) {
-  .home-text1 {
-    font-size: 16px; /* Even smaller font size for very small screens */
-  }
-}
+
+
+  /* images */ 
+
   .image-container {
     display: flex;
     justify-content: space-between;
@@ -333,12 +318,6 @@ font-size: 25px;
     width: 100%;
     height: 15pc;
     object-fit: cover; /* covers the area of the container without losing aspect ratio */
-}
-
-@media (min-width: 768px) { /* targets screens wider than 768 pixels */
-  .image img {
-      min-height: 500px; /* increases the height of the images on larger screens */
-  }
 }
 .image-container2 {
     display: flex;
@@ -368,11 +347,6 @@ font-size: 25px;
     width: 100%; /* Ensures image width fills the container */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures the images cover the container */
-}
-@media (max-width: 768px) { /* Adjust this breakpoint as needed */
-  .image2 {
-    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
-  }
 }
 /* Offset every other image */
 .image:nth-child(odd) {
@@ -408,6 +382,7 @@ font-size: 25px;
     margin: 0 auto;
     object-fit: cover; /* Adjust as needed to cover the area of the container */
   }
+
   .image-container4 {
     display: flex;
     flex-wrap: wrap; /* This allows items to wrap to the next line */
@@ -424,6 +399,7 @@ font-size: 25px;
     margin: 0 auto;
     object-fit: cover; /* Adjust as needed to cover the area of the container */
   }
+
   /* Existing styles for .image-container3 and .image-container4 */
 .image-container3, .image-container4 {
     display: flex;
@@ -447,169 +423,258 @@ font-size: 25px;
     object-fit: cover; /* Cover the area of the container without losing its aspect ratio */
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .image-container3 .image3, .image-container4 .image4 {
-        flex-basis: 100%; /* Full width on smaller screens */
-        max-width: 100%; /* Ensure max width is not limiting */
-        object-fit: contain;
-    }
-}
 /* Directly target images within those containers to adjust their size */
 .image-container3 .image3 img, .image-container4 .image4 img {
         /* You might want to adjust their width to be less than 100% if you want them to shrink more noticeably */
         flex-basis: 100%; /* Adjust the basis to 100% to ensure images take the full width of the container */
         max-width: 100%;
+ }
+
+ .img {
+  background-color: #FFFAF1;
+  -ms-flex-item-align: center;
+  orientation: horizontal;
+  padding: 20px 30px;
+  }  
+
+
+
+
+  /* Text content */
+
+  .text-content-container {
+    width: 100%; /* Ensures the container spans the full width of the screen */
+    padding: 20px; /* Adds some padding inside the container for better readability */
+    background-color: #FFFAF1; /* Matches the background color of other containers */
+    box-sizing: border-box; /* Ensures padding does not affect the overall width */
+    font-family: Arial, sans-serif; /* Example font, change as needed */
+    line-height: 1.6; /* Adjusts line height for better readability */
+    text-align: center; /* Centers the text within the container */
+    color:#567033;
+}
+.text-content-container1 {
+    width: 100%; /* Ensures the container spans the full width of the screen */
+    padding: 20px; /* Adds some padding inside the container for better readability */
+    background-color: #FFFAF1; /* Matches the background color of other containers */
+    box-sizing: border-box; /* Ensures padding does not affect the overall width */
+    font-family: Arial, sans-serif; /* Example font, change as needed */
+    line-height: 1.6; /* Adjusts line height for better readability */
+    text-align: center; /* Centers the text within the container */
+    color:#567033;
+    font-size: 30px;
+}
+
+.text-content-container p, .text-content-container h1, .text-content-container h2, .text-content-container h3, .text-content-container h4, .text-content-container h5, .text-content-container h6 {
+    text-align: center; /* Explicitly centers all text elements */
+    color:#567033;
+}
+
+
+
+
+/* Screen size larger than 1024px */
+
+@media (min-width: 1024px) {
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
     }
-.event-info-container {
-    display: flex;
-    align-items: center; /* Adjusts vertical alignment */
-    justify-content: space-between; /* Manages spacing between the two containers */
-    flex-wrap: wrap;
+    body {
+        padding-top: 210px; /* Adjust based on actual header height */
+    }
 }
 
-.countdown-content {
-    flex: 1; /* Gives equal width, adjust as needed */
-    padding: 15px; /* Optional padding */
+
+
+
+/* Screen size larger than 769px */
+
+@media (min-width: 769px) {
+    .text-content-container p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+    .text-content-container1 p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+    .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+  }
 }
 
-/* Additional styling for responsiveness */
+
+
+
+/* Screen size smaller than 768px */
+
 @media (max-width: 768px) {
+  .hamburger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    .menu-items {
+        display: none; /* Hide menu items, show hamburger menu */
+    }
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+    .countdown-content {
+        font-size: 18px; /* Smaller font size for smaller screens */
+    }
+    .image2 {
+       flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+    }
+    .image-container3 .image3, .image-container4 .image4 {
+        flex-basis: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Ensure max width is not limiting */
+        object-fit: contain;
+    }
     .event-info-container {
         flex-direction: column; /* Stacks the containers vertically on smaller screens */
     }
-}
-.boxes-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 20px 0; /* Adjust margin as needed for spacing around the box container */
+    .info-box {
+      width: 30vw; /* Increase size for smaller screens if needed */
+      height: 30vw; /* Keep the height equal to the width */
+      font-size: 16px; /* Slightly larger font size for small screens */
+    }
+    .boxes-container {
+      padding: 0 10px; /* Ensures 10px padding from the edges of the screen */
+    }
+    .responsive-box {
+      flex-basis: calc(100% - 20px); /* Adjusts width to account for padding */
+      margin: 10px 0; /* Top and bottom margins remain 10px, removes left/right margins */
+    }
+    .text-content-container p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .text-content-container1 p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .home-text1 {
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
 }
 
-.info-box {
-  width: 15vw; /* Use viewport width for size */
-  height: 15vw; /* Use viewport width for size so width and height stay equal */
-  max-width: 15pc; /* Maximum size */
-  max-height: 15pc; /* Maximum size */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: 'legrand', sans-serif;
-  font-size: 16px;
-  color: #023020;
-  margin-left: 20px;
-  margin-right: 20px;
+
+
+
+/* Screen size smaller than 600px */
+
+@media (max-width: 600px) {
+    .header-image-container{
+        padding: -200px;
+        margin-left: -30px;
+        margin-top: -30px;
+    }
 }
 
-@media (max-width: 768px) {
-  .info-box {
-    width: 30vw; /* Increase size for smaller screens if needed */
-    height: 30vw; /* Keep the height equal to the width */
-    font-size: 16px; /* Slightly larger font size for small screens */
+
+
+/* Screen size smaller than 480px */
+
+/* Media query for very small screens, like small smartphones */
+@media (max-width: 480px) {
+  .home-text1 {
+    font-size: 16px; /* Even smaller font size for very small screens */
   }
 }
+ 
 
-.boxes-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
-  justify-content: space-between; /* Distributes spacing evenly */
-  align-items: stretch; /* Aligns boxes to the same height */
-  margin: 20px 0; /* Provides vertical space around the container */
+
+
+/* Screen size smaller than 320px */
+
+@media (max-width: 320px) {
+    .header-image-container{
+        margin-left: -30px;
+        margin-top: -30px;
+    }
 }
 
-.responsive-box {
-  flex: 1 1 30%; /* Allows boxes to grow and shrink but base at 30% */
-  box-sizing: border-box;
-  padding: 20px;
-  margin: 10px; /* Ensures 10px margin around each box */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 1px solid #023020;
-  justify-content: center;
-    text-align: center;
-    padding: 0 10px;
-    color: #567033;
-}
+/* Media Query for screens wider than 2560px */
+@media (min-width: 2560px) {
+    .header-image-container img {
+        max-width: 250px; /* Increase logo size */
+    }
 
-@media (max-width: 768px) {
-  .boxes-container {
-    padding: 0 10px; /* Ensures 10px padding from the edges of the screen */
-  }
-  
-  .responsive-box {
-    flex-basis: calc(100% - 20px); /* Adjusts width to account for padding */
-    margin: 10px 0; /* Top and bottom margins remain 10px, removes left/right margins */
-  }
-}
+    .text-content-container p, .text-content-container1 p {
+        font-size: 40px; /* Larger text for better readability */
+        padding: 0 15%; /* More breathing room on the sides */
+    }
 
-.box-half {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    margin: 0; /* Ensure there's no additional margin pushing the border out */
-}
+    .top-menu li {
+        font-size: 40px; /* Larger menu items */
+        padding: 25px 40px; /* Larger padding for better tap targets and spacing */
+    }
 
-/* Specific style for the text and image containers */
-.box-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 0 10px;
-    color: #567033;
-}
+    .image img, .image2 img {
+        height: 60pc; /* Larger images */
+        width: 23pc;
+    }
 
-.box-image-container {
-    padding: 5px; /* Creates a "border" effect around the image */
-    box-sizing: border-box;
-    background-color: #FFFAF1; /* Background color to simulate the border */
-}
+    .countdown-content, .modal-content {
+        font-size: 40px; /* Larger font size in modal and countdown elements */
+    }
 
-.box-image-left {
-     width: calc(500px); /* Adjust based on your needs */
-    height: calc( 400px); /* Making the image taller */
-    margin: -10px -10px -10px -10px; /* Negative margins to overlap the border */
-    z-index: 10; /* Ensuring the image is above the border if needed */
-    position: relative;
-    margin-left: 0 !important;
-}
-.box-image-right {
-    width: calc(500px); /* Adjust based on your needs */
-    height: calc(400px); /* Making the image taller */
-    margin: -10px -10px -10px -10px; /* Adjusted right margin to -20px to create a gap */
-    z-index: 10; /* Ensuring the image is above the border if needed */
-    position: relative;
-    margin-right: 0 !important;
-}
+    .modal-content {
+        width: 60%; /* Adjust modal width to better suit larger screens */
+    }
 
-/* New styles for swapping text and image positions in the second box */
-.image-left .box-text {
-    order: 2; /* Moves text to the right */
-}
+    /* Enhancing header and menu readability */
+    .header-text-content, .top-menu-link {
+        font-size: 22px; /* Increase font size for navigational links */
+    }
 
-.image-left .box-image-container {
-    order: 1; /* Moves image to the left */
-}
+    /* Adjusting sizes for detailed sections like RSVP, accommodation details */
+    .text-content-container, .text-content-container1 {
+        font-size: 40px; /* Increasing content font size for better readability */
+    }
 
-.box-text {
-    padding: 0 10px; /* Reduce padding as necessary, was originally 0 10px */
-    color: #567033; /* Existing text color */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    /* Adjusting image gallery settings */
+    .image-container, .image-container2, .image-container3, .image-container4 {
+        justify-content: space-evenly; /* Better spacing between gallery images */
+    }
+
+    .image, .image2, .image3, .image4 {
+        padding: 5px; /* More padding around images */
+        max-width: 350px; /* Larger max-width for images in galleries */
+    }
+
+    .header-image-container img {
+        max-width: 400px; /* Further increase logo size */
+    }
+
+    .header-text-content, .top-menu-link {
+        font-size: 45px; /* Increase font size for header content */
+        padding: 20px 40px; /* Adjust padding to better align with the larger text and image */
+    }
+
+    /* Adjusting the overall header container padding for better alignment */
+    .header-container {
+        padding: 20px 40px; /* Increase padding to ensure ample space around elements */
+    }
+
+    /* Increasing the font size for the main navigation links in the header */
+    .top-menu li {
+        font-size: 45px; /* Further increase menu item font size for better accessibility */
+        padding: 25px 50px; /* Increase padding for larger hit areas */
+    }
+
+    .top-menu {
+        padding: 0 5%; /* Optional: add padding to the entire top menu for better edge spacing */
+    }
 }
 
 
-
-
-</style></head>
+</style>
+</head>
 <body>
   <link rel="stylesheet" type="text/css" href="styles.css">
       <div class="header-container">
@@ -623,9 +688,7 @@ font-size: 25px;
             <div class="top-menu">
               <ul>
                 <div class="menu-items">
-                <li>
-                  <a class="top-menu-link" href="Public/Theday.html">The Day</a>
-                  </li>
+                <li><a class="top-menu-link" href="Public/Theday.html">The Day</a></li>
                   <li><a href="./Public/getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
                   <li><a href="./Public/Acommodation.html" class="top-menu-link">Accommodation</a></li>
                   <li><a href="./Public/Inthearea.hmtl" class="top-menu-link">In The Area</a></li>
@@ -637,7 +700,7 @@ font-size: 25px;
                 <div class="modal-content">
                   <span class="close">&times;</span>
                   <ul>
-                     <li><a href="./Public/Theday.html">The Day</a></li>
+                    <li><a href="Public/Theday.html">The Day</a></li>
                     <li><a href="./Public/getting-there-open-site.html">Getting There</a></li>
                     <li><a href="./Public/Acommodation.html">Accommodation</a></li>
                     <li><a href="./Public/Inthearea.hmtl">In The Area</a></li>
@@ -690,16 +753,10 @@ font-size: 25px;
     <div class="image">
       <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-6.jpg" alt="Image 6"></div>
   </div>
-  <div class="boxes-container">
-    <div class="responsive-box">
-        <p>We're so excited to share our wedding website with you. Consider this your official guide to our wedding day and the place to find accommodation recommendations, travel instructions, the itinerary for the day and more. We can't wait to celebrate with you!</p>
-    </div>
-    <div class="responsive-box">
-        <p>19 July 2025</p>
-    </div>
-    <div class="responsive-box">
-      <div class="box-half box-text" id="countdown"><p>509 days 4 hours 37 minutes</p> 
-    </div>
+  <div class="text-content-container">
+    <h3> The Wedding</h3>
+      <p>We're so excited to share our wedding website with you. Consider this your official guide to our wedding day and the place to find accommodation recommendations, travel instructions, the itinerary for the day and more. We can't wait to celebrate with you!</p>
+        </div>
 </div>
 </div>
     </div>
@@ -803,6 +860,11 @@ $(document).ready(function(){
     <img src="Assests/Images/david and emma/Ed6.jpeg" alt="Image 5"></div>
   <div class="image2">
     <img src="Assests/Images/david and emma/ED3.jpeg" alt="Image 6"></div>
+  </div>
+<div class="text-content-container1">
+  <h3>The date</h3>
+    <p>Join us on the 19 July 2025</p>
+    <p>Only 509 days 4 hours 37 minutes to go!</p> 
 </div>
   </div>
   </div>
