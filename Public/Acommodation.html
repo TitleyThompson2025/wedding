@@ -14,13 +14,10 @@
   font-family: 'legrand';
   src: url('') format('truetype');
 }
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'legrand', 'regluar' ;
-  background-color: #FFFAF1;
-  padding-top: 60px; /* Adjust this value based on your header's height */
-}
+
+
+/*Header*/
+
 .header-container {
     display: flex;
     align-items: center; /* Ensure items are vertically centered */
@@ -32,24 +29,24 @@ body {
     border-bottom: 1px solid #023020;
 }
 .header-image-container {
-    /* Removed absolute positioning to keep in document flow */
-    display: flex;
+     /* Removed absolute positioning to keep in document flow */
+     display: flex;
     justify-content: flex-start; /* Align image to the left */
     align-items: center; /* Center image vertically */
     padding: 0; /* Adjust as necessary */
+    margin-left: -30px;
+    margin-top: -30px;
+    margin-right: -30px;
 }
 .header-image-container img {
     max-width: 150px; /* or 200px for larger screens, adjust as necessary */
     height: auto;
 }
+
 .header-container:after {
     content: "";
     display: table;
     clear: both;
-}
-/* Adjust padding on the body to prevent overlap */
-body {
-    padding-top: 30px !important; /* Adjust based on the header's height */
 }
 
 /* Ensure .header-text-content and .hamburger-menu are correctly aligned */
@@ -59,42 +56,238 @@ body {
     align-items: center; /* Center items vertically */
     width: 100%;
 }
+
+.header-container, .image-container, .text-content-container, .modal-content {
+    max-width: 100%; /* Ensures no element is wider than the viewport */
+}
+
+
+/* Top Menu */
+
+.top-menu {
+    background-color: #FFFAF1;
+    white-space: nowrap;  /* Prevents wrapping of menu items */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.menu-items {
+  display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    width: 100%;
+}
+
+/* Targeting the container of the menu */
+.top-menu,
+.menu-items {
+    border: none !important;
+}
+
+/* Targeting the list items and links directly */
+.top-menu li,
+.top-menu li a,
+.top-menu-link {
+    border: none !important;
+    border-bottom: none !important; /* Specifically removing bottom borders if they were set */
+}
+
+/* Ensuring no underlines or borders from link hover states */
+.top-menu li a:hover,
+.top-menu-link:hover {
+    border: none !important;
+    border-bottom: none !important;
+    text-decoration: none; /* Removing underline on hover to clean up appearance */
+}
+
+.top-text .text-content { 
+  font-family: 'my-everything', woff;
+}
+.top-text{
+  background-color: #FFFAF1;
+  overflow: hidden;
+}
+.text-content, .menu-items {
+    text-align: center;
+}
+.top-text .text-content {
+  padding: 0px;
+  font-size: 30px;
+  color: #567033;
+}
+
+.resize-image {
+  width: 150px;  /* Adjust the width as desired */
+  height: auto;  /* Keeps the aspect ratio intact */
+}
+
+.top-left-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.top-menu-link {
+color: #567033;
+  background-color: #FFFAF1;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Reset some default browser styles */
+ul, li, a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* Remove list styles */
+ul {
+    list-style: none;
+}
+
+/* Make list items and links into block-level elements */
+ul.top-menu li {
+    display: inline-block;  /* Makes each item inline but block for formatting */
+    margin-right: 10px !important; /* Keeps space between items */
+    white-space: nowrap;
+    text-decoration: none;
+    color: #023020;
+    padding: 10px;
+}
+
+.top-menu li {
+  color: #567033;
+  text-align: right !important;
+  text-orientation: horizontal;
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 25px;
+  display: inline-block;
+}
+
+ul.top-menu, ul.top-menu li, ul.top-menu li a, ul.top-menu-link{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+ul.top-menu-link{
+    color: #567033;
+    background-color: #FFFAF1; 
+    outline: none;
+}
+.top-menu li a:hover {
+  background-color: #FFFAF1;
+  color: black;
+}
+.top-menu-link:hover {
+  background-color: #567033;
+  color: green;
+}
+.top-menu {
+  background-color: #FFFAF1;
+}
+
+
+
+/*Body*/
+
+body {
+  background-color: ; /* Your site's background color */
+}
+
+body {
+  position: relative; /* This makes the body the reference point for absolute positioning */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'legrand', 'regluar' ;
+  background-color: #FFFAF1;
+  padding-top: 60px; /* Adjust this value based on your header's height */
+}
+
+
+/* Adjust padding on the body to prevent overlap */
+body {
+    padding-top: 30px !important; /* Adjust based on the header's height */
+}
+
+
+
+/* Hamburger */
+
 .hamburger-menu {
     display: none; /* Initially hidden, shown on smaller screens */
+    color: #567033;
 } 
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block; /* Show on smaller screens */
-    }
-    .menu-items {
-        display: none; /* Hide menu items, show hamburger menu */
-}
-    }
 
-/* For larger screens, adjust the size of the header image */
-@media (min-width: 1024px) {
-    .header-image-container img {
-        max-width: 200px; /* Larger image on larger screens */
-    }
-
-    /* Adjust padding-top of body based on the new header height */
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
-    }
-}
 .hamburger-menu {
     display: none; /* Hidden by default */
     font-size: 40px; /* Icon size */
     cursor: pointer; /* Indicates it's clickable */
+    color: #567033;
 }
-@media (max-width: 768px) {
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger icon on smaller screens */
-    }
+
+
+/* Modal */
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 10; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
+
+.modal-content {
+  background-color: #ffffff; 
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Modal Link Styling */
+#myModal .modal-content a {
+    color: #567033; /* Matches the primary text color used elsewhere */
+    text-decoration: underline; /* Removes underline */
+    cursor: pointer; /* Retains the pointer to indicate clickability */
+}
+
+#myModal .modal-content a:hover, 
+#myModal .modal-content a:focus {
+    color: #567033; /* Darker shade for hover/focus states */
+    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
+}
+/* Additional CSS to ensure menu-items are hidden when modal is displayed */
+.modal-open .menu-items {
+    display: none !important;
+}
+/* The Close Button */
+.close {
+  color: #567033;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -116,7 +309,7 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-  font-family: 'FontAwesome', woff;
+  font-family: 'my-everything', woff;
   font-size: 25px;
   text-decoration: none; /* Removes underline */
   cursor: default; /* Changes cursor to default instead of pointer */
@@ -151,174 +344,37 @@ body {
   cursor: pointer;
 }
 
-/* Targeting the container of the menu */
-.top-menu,
-.menu-items {
-    border: none !important;
-}
-
-/* Targeting the list items and links directly */
-.top-menu li,
-.top-menu li a,
-.top-menu-link {
-    border: none !important;
-    border-bottom: none !important; /* Specifically removing bottom borders if they were set */
-}
-
-/* Ensuring no underlines or borders from link hover states */
-.top-menu li a:hover,
-.top-menu-link:hover {
-    border: none !important;
-    border-bottom: none !important;
-    text-decoration: none; /* Removing underline on hover to clean up appearance */
-}
-body {
-  background-color: ; /* Your site's background color */
-}
-.top-text .text-content { 
-  font-family: 'FontAwesome', woff;
-}
-.top-text{
-  background-color: #FFFAF1;
-  overflow: hidden;
-}
-.text-content, .menu-items {
-    text-align: center;
-}
-.top-text .text-content {
-  padding: 0px;
-  font-size: 30px;
-  color: #567033;
-}
-body {
-  position: relative; /* This makes the body the reference point for absolute positioning */
-}
-.resize-image {
-  width: 150px;  /* Adjust the width as desired */
-  height: auto;  /* Keeps the aspect ratio intact */
-}
-top-left-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.top-menu-link {
-color: #567033;
-  background-color: #FFFAF1;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-}
-/* Reset some default browser styles */
-ul, li, a {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-}
-
-/* Remove list styles */
-ul {
-    list-style: none;
-}
-
-/* Make list items and links into block-level elements */
-ul.top-menu li {
-    display: inline;
-    margin-right: 20px;
-}
-/* Style the links */
-ul.top-menu li {
-    text-decoration: none;
-    color: #023020
-    padding: 10px;
-}
-.top-menu li {
-  color: #567033;
-  text-align: right;
-  text-orientation: horizontal;
-  padding: 20px 30px;
-  text-decoration: none;
-  font-size: 25px;
-  display: inline-block;
-}
-
-ul.top-menu, ul.top-menu li, ul.top-menu li a, ul.top-menu-link{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-ul.top-menu-link{
-    color: #567033;
-    background-color: #FFFAF1; 
-    outline: none;
-}
-.top-menu li a:hover {
-  background-color: #FFFAF1;
-  color: black;
-}
-.top-menu-link:hover {
-  background-color: #567033;
-  color: green;
-}
-.top-menu {
-  background-color: #FFFAF1;
-}
 .content {
   margin-top: 20px;
   padding: 20px;
 }
-.countdown-content {
-color: #567033;
-  text-align: center;
-  font-size: 25px;
-  color: #567033;
-  padding: 20px 30px;
-  background-color: #FFFAF1;
-  border-bottom: 1px solid #567033;
-  overflow: hidden;
-  text-align: center;
-  }
-  .img {
-  background-color: #FFFAF1;
-  -ms-flex-item-align: center;
-  orientation: horizontal;
-  padding: 20px 30px;
-  }
+ 
 .home_text {
 font-size: 25px;
   color: #567033;
   text-align: center;
   }
-  .image-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Start with aligning items to the bottom */
-    width: 100%;
-    height: auto;
-    min-height: 18pc; /* Adjust this value as needed */
-  }
-  .image {
-    flex: 1;
-    padding: 3px;
-    height: auto;
-    display: flex;
-    align-self: center;
-    max-width: 300px;
-}
-.image img {
-    width: 100%;
-    height: 15pc;
-    object-fit: cover; /* covers the area of the container without losing aspect ratio */
+
+
+
+
+  /* images */ 
+
+/* Offset every other image */
+.image:nth-child(odd) {
+    align-self: flex-end; /* Odd images will align to the bottom */
 }
 
-@media (min-width: 768px) { /* targets screens wider than 768 pixels */
-  .image img {
-      min-height: 500px; /* increases the height of the images on larger screens */
-  }
+.image:nth-child(even) {
+    align-self: flex-start; /* Even images will align to the top */
+}
+/* Offset every other image */
+.image2:nth-child(odd) {
+    align-self: flex-end; /* Odd images will align to the bottom */
+}
+
+.image2:nth-child(even) {
+    align-self: flex-start; /* Even images will align to the top */
 }
 .image-container2 {
     display: flex;
@@ -348,44 +404,40 @@ font-size: 25px;
     width: 100%; /* Ensures image width fills the container */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures the images cover the container */
-}
-@media (max-width: 768px) { /* Adjust this breakpoint as needed */
-  .image2 {
-    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+} 
+ .image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Start with aligning items to the bottom */
+    width: 100%;
+    height: auto;
+    min-height: 18pc; /* Adjust this value as needed */
   }
+  .image {
+    flex: 1;
+    padding: 3px;
+    height: auto;
+    display: flex;
+    align-self: center;
+    max-width: 300px;
 }
-/* Offset every other image */
-.image:nth-child(odd) {
-    align-self: flex-end; /* Odd images will align to the bottom */
+.image img {
+    width: 100%;
+    height: 15pc;
+    object-fit: cover; /* covers the area of the container without losing aspect ratio */
 }
+.img {
+  background-color: #FFFAF1;
+  -ms-flex-item-align: center;
+  orientation: horizontal;
+  padding: 20px 30px;
+  }
 
-.image:nth-child(even) {
-    align-self: flex-start; /* Even images will align to the top */
-}
-/* Offset every other image */
-.image2:nth-child(odd) {
-    align-self: flex-end; /* Odd images will align to the bottom */
-}
 
-.image2:nth-child(even) {
-    align-self: flex-start; /* Even images will align to the top */
-}
-/* Additional CSS to ensure menu-items are hidden when modal is displayed */
-.modal-open .menu-items {
-    display: none !important;
-}
-/* Modal Link Styling */
-#myModal .modal-content a {
-    color: #567033; /* Matches the primary text color used elsewhere */
-    text-decoration: underline; /* Removes underline */
-    cursor: pointer; /* Retains the pointer to indicate clickability */
-}
 
-#myModal .modal-content a:hover, 
-#myModal .modal-content a:focus {
-    color: #6c757d; /* Darker shade for hover/focus states */
-    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
-}
+
+  /* maps */ 
+
 #mapid {
   height: 150px;
   width: 150px; /* Specific width */
@@ -408,23 +460,14 @@ font-size: 25px;
     flex-direction: column; /* Aligns the map, image, and text vertically */
     align-items: center; /* Centers the items horizontally */
 }
-
-@media (min-width: 768px) {
-    .map-container {
-        flex: 0 1 calc(33.33% - 20px); /* Adjust based on your layout */
-        padding: 10px; /* Consistent padding around the items */
-        margin-bottom: 20px; /* Space between rows */
-        /* Ensure there's no right margin on the last item in a row */
-    }
-
-    .map-container:nth-last-of-type(-n+3) { /* Targets the last 3 items */
+.map-container:nth-last-of-type(-n+3) { /* Targets the last 3 items */
         margin-bottom: 0; /* Removes bottom margin for the last row if you want */
     }
 
     .maps-container {
         justify-content: flex-start; /* Aligns items to the start of the container */
     }
-}
+
 .map, .map-image, .map-description {
     width: 440px; /* Ensures that the map, image, and text each take up the full width of their container */
     font-size: 20px;
@@ -442,59 +485,346 @@ font-size: 25px;
     font-family: 'legrand', 'regluar' ;
     max-height: 300px;
 }
-@font-face {
-  font-family: 'my-everything';
-  src: url('./my-everything/My\ Everything\ TRIAL.ttf') format('woff');
-}
-@font-face {
-  font-family: 'legrand';
-  src: url('') format('truetype');
-}
+
 .map {
     height: 200px; /* Fixes the height of the map */
     background-color: #EEE; /* A placeholder background color */
     margin-bottom: 10px; /* Space between map and image */
 }
 
-</style></head>
+
+
+
+/* Screen size larger than 769px */
+
+@media (min-width: 769px) {
+    .text-content-container p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+    .text-content-container1 p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+    .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+  }
+    .map-container {
+        flex: 0 1 calc(33.33% - 20px); /* Adjust based on your layout */
+        padding: 10px; /* Consistent padding around the items */
+        margin-bottom: 20px; /* Space between rows */
+        /* Ensure there's no right margin on the last item in a row */
+    }
+    .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+    }
+}
+
+
+
+/* Screen size smaller than 768px */
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 37px;
+    }
+    .menu-items {
+        display: none; /* Hide menu items, show hamburger menu */
+    }
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+    .info-box {
+      width: 30vw; /* Increase size for smaller screens if needed */
+      height: 30vw; /* Keep the height equal to the width */
+      font-size: 16px; /* Slightly larger font size for small screens */
+    }
+    .text-content-container p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .text-content-container1 p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .home-text1 {
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
+    .image2 {
+    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 768px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+}
+
+/* Screen size smaller than 600px */
+
+@media (max-width: 600px) {
+    .header-image-container{
+        padding: -200px;
+        margin-left: -30px;
+        margin-top: -30px;
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 768px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 50%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+}
+
+
+/* Screen size smaller than 425px */
+
+/* Media query for very small screens, like small smartphones */
+@media (max-width: 425px) {
+  .home-text1 {
+    font-size: 16px; /* Even smaller font size for very small screens */
+  }
+    .maps-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers the containers */
+        padding: 0;
+        margin: 0 auto; /* Ensures everything is centered */
+        width: 100%; /* Account for padding */
+    }
+    .map-container {
+        flex: 0 0 90%; /* Each map container takes full width */
+        max-width: 100%; /* Ensures it doesn't exceed the screen width */
+        margin: 10px 0; /* Spacing between each map container */
+        box-sizing: border-box; /* Padding and border included in width calculation */
+        padding: 0 10px; /* Padding inside each map container */
+        border: 1px solid black; /* Adds a border around each map container */
+    }
+    .map, .map-image {
+        width: 100%; /* Ensures map and images resize to fit their containers */
+        height: auto; /* Keeps the map height responsive */
+    }
+    .map-description {
+        text-align: center; /* Ensures text is centered within the map container */
+        word-wrap: break-word;
+        hyphens: auto;
+        margin: 5px 10px; /* Adds margin around the text for padding within the container */
+        padding: 0 5px; /* Extra padding to ensure text doesn't touch the borders */
+        box-sizing: border-box; /* Includes padding in the element's total width and height */
+        width: 100%; /* Ensures the description uses the full width of the container */
+        font-size: 14px; /* Adjust font size as needed for better readability */
+    }
+}
+
+
+
+/* Screen size smaller than 320px */
+
+@media (max-width: 320px) {
+    .header-image-container{
+        margin-left: -30px;
+        margin-top: -30px;
+    }
+    .maps-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers the containers */
+        padding: 0;
+        margin: 0 auto; /* Ensures everything is centered */
+        width: 100%; /* Account for padding */
+    }
+    .map-container {
+        flex: 0 0 90%; /* Each map container takes full width */
+        max-width: 100%; /* Ensures it doesn't exceed the screen width */
+        margin: 10px 0; /* Spacing between each map container */
+        box-sizing: border-box; /* Padding and border included in width calculation */
+        padding: 0 10px; /* Padding inside each map container */
+        border: 1px solid black; /* Adds a border around each map container */
+    }
+    .map, .map-image {
+        width: 100%; /* Ensures map and images resize to fit their containers */
+        height: auto; /* Keeps the map height responsive */
+    }
+    .map-description {
+        text-align: center; /* Ensures text is centered within the map container */
+        word-wrap: break-word;
+        hyphens: auto;
+        margin: 5px 10px; /* Adds margin around the text for padding within the container */
+        padding: 0 5px; /* Extra padding to ensure text doesn't touch the borders */
+        box-sizing: border-box; /* Includes padding in the element's total width and height */
+        width: 100%; /* Ensures the description uses the full width of the container */
+        font-size: 14px; /* Adjust font size as needed for better readability */
+    }
+}
+
+
+/* Screen size larger than 1024px */
+
+@media (min-width: 1024px) {
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+    body {
+        padding-top: 210px; /* Adjust based on actual header height */
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 1024px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+}
+
+/* Screen size larger than 1440px */
+
+@media (min-width: 1440px) {
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+    body {
+        padding-top: 210px; /* Adjust based on actual header height */
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 1440px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 31%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+}
+
+
+</style>
+</head>
 <body>
   <link rel="stylesheet" type="text/css" href="styles.css">
       <div class="header-container">
         <div class="header-image-container">
-            <img src="../Assests/Images/logo/ed-high-resolution-logo.png"  
+            <img src="../assests/Images/logo/ed-high-resolution-logo.png"  
             alt="a figure of a couple in a wedding dress and suit, with the letters E and D beneath, below this the thrase Wedding 2025 is shown"
              id="top-left-image" class="color-overlay">
         </div>
         <div class="header-text-content">
-          <div class="hamburger-menu"></div> 
+          <div class="hamburger-menu">&#9776;</div> 
             <div class="top-menu">
               <ul>
                 <div class="menu-items">
                   <li><a href="../index.html" class="top-menu-link">Home</a></li>
                   <li><a href="./Theday.html" class="top-menu-link">The Day</a></li>
                   <li><a href="./getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
-                  <li><a href="./Inthearea.hmtl" class="top-menu-link">In the Area</a></li>
+                  <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In the Area</a></li>
                   <li><a href="./RSVP.html" class="top-menu-link">RSVP</a></li>
-                  </div>
+                </div>
                   </ul>
               </div>
+            </div>
+          </div>
+          </div>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./getting-there-open-site.html">Getting There</a></li>
+                <li><a href="./Acommodation.html">Accommodation</a></li>
+                <li><a href="./Inthearea.hmtl">In The Area</a></li>
+                <li><a href="./RSVP.html">RSVP</a></li>
+              </ul>
         </div>
+          </div>
     </div>
     </div>
   </div>
   <div>
   </div>
   <script>
-    $(document).ready(function(){
-        $(".hamburger-menu").click(function(){
-            $(".menu-items").toggle(); // Toggles visibility of the menu
-        });
+     $(document).ready(function(){
+    // Function to adjust layout for responsive behavior
+    function adjustLayout() {
+        // This function can contain responsive adjustments unrelated to the modal
+        // Since you want the modal CSS untouched, we won't modify anything related to it here
+    }
+
+    // Initial call to set everything up correctly
+    adjustLayout();
+
+    // Handling the hamburger menu interactions
+    $(".hamburger-menu").click(function(event){
+        event.stopPropagation(); // Prevents triggering any parent event handlers
+        $("#myModal").css('display', 'block');  // Open the modal
+        return false; // Stops the event from propagating further
     });
+
+    $(".close").click(function(){
+        $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+    });
+
+    // Close modal when clicking outside of it
+    $(window).click(function(event) {
+        if($(event.target).hasClass('modal')) {
+            $("#myModal").css('display', 'none');
+        }
+    });
+
+    // Respond to window resizing
+    $(window).resize(function() {
+        adjustLayout(); // Adjust the layout when the window is resized
+    });
+});
     </script>
 <h></h>
   </div>
 </div>
-    </div>
 <div class="maps-container">
     <!-- Map Container 1 -->
   <div class="map-container">
@@ -502,7 +832,7 @@ font-size: 25px;
       <iframe width="100%" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.690593719482422%2C50.93960885552307%2C-0.48048019409179693%2C51.01937021189444&amp;layer=transportmap&amp;marker=50.979506660876275%2C-0.5855369567871094" 
       style="border: 1px solid black"></iframe><br/>
     </div>
-      <img src="../Assests/Images/Acommodation/The Welldiggers arms.jpeg" alt="Description" class="map-image">
+      <img src="../assests/Images/Acommodation/The Welldiggers arms.jpeg" alt="Description" class="map-image">
       <p class="map-description"><B>The Welldiggers Arms</B></p>
       <p class="map-description">The Welldiggers Arms, Low Heath, Petworth, West Sussex, GU28 0HG</p>
       <p class="map-description">Distance from venue: 11km</p>
@@ -515,7 +845,7 @@ font-size: 25px;
       <iframe width="100%" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.616436004638672%2C50.90010983746591%2C-0.4664039611816406%2C50.979938969720074&amp;layer=transportmap&amp;marker=50.94004153574171%2C-0.5414199829101562" 
       style="border: 1px solid black"></iframe><br/>
     </div>
-      <img src="../Assests/Images/Acommodation/The Labouring Man.JPG" alt="Description" class="map-image">
+      <img src="../assests/Images/Acommodation/The Labouring Man.JPG" alt="Description" class="map-image">
       <p class="map-description"><B>The Labouring Man</B></p>
       <p class="map-description">Old London Road, Coldwaltham, West Sussex, RH20 1LF</p>
       <p class="map-description">Distance from venue: 6.5km</p>
@@ -528,7 +858,7 @@ font-size: 25px;
       <iframe width="100%" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.6214141845703126%2C50.94609863604379%2C-0.37353515625000006%2C51.0243372511035&amp;layer=transportmap&amp;marker=50.98523442639513%2C-0.49747467041015625" 
       style="border: 1px solid black"></iframe><br/>
     </div>
-      <img src="../Assests/Images/Acommodation/Em camping.jpg" alt="Description" class="map-image">
+      <img src="../assests/Images/Acommodation/Em camping.jpg" alt="Description" class="map-image">
       <p class="map-description">Camping at Two Woods Estate</p>
       <p class="map-description">Distance: 0km.</p>
   </div>
@@ -538,10 +868,10 @@ font-size: 25px;
       <iframe width="100%" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.5209708213806153%2C50.953979796984534%2C-0.4975175857543946%2C50.96381923329953&amp;layer=transportmap&amp;marker=50.95889977559045%2C-0.5092549324035645" 
       style="border: 1px solid black"></iframe>
       <br/><small><a 
-      href="https://www.openstreetmap.org/?mlat=50.9589&amp;mlon=-0.5093#map=16/50.9589/-0.5092&amp;layers=TN">View Larger Map</a>
+      href="https://www.openstreetmap.org/?mlat=50.9589&amp;mlon=-0.5093#map=16/50.9589/-0.5092&amp;layers=TN"></a>
       </small>
     </div>
-    <img src="../Assests/Images/Acommodation/13481579.jpg" alt="Description" class="map-image">
+    <img src="../assests/Images/Acommodation/13481579.jpg" alt="Description" class="map-image">
     <p class="map-description">Chequers hotel Pulborough</p>
     <p class="map-description">Old Rectory Lane, Pulborough, West Sussex, RH20 1AD</p>
     <p class="map-description">Distance from venue: 4km</p>
@@ -553,9 +883,9 @@ font-size: 25px;
     <div class="map">
     <iframe width="100%" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.34407377243042%2C51.05820150594525%2C-0.3206205368041993%2C51.0680188584709&amp;layer=transportmap&amp;marker=51.063110442454786%2C-0.33234715461730957" 
     style="border: 1px solid black"></iframe><br/><small><a 
-    href="https://www.openstreetmap.org/?mlat=51.0631&amp;mlon=-0.3323#map=16/51.0631/-0.3323&amp;layers=TN">View Larger Map</a></small>
+    href="https://www.openstreetmap.org/?mlat=51.0631&amp;mlon=-0.3323#map=16/51.0631/-0.3323&amp;layers=TN"></a></small>
     </div>
-      <img src="../Assests/Images/Acommodation/The Roundabout Hotel.jpg" alt="Description" class="map-image">
+      <img src="../assests/Images/Acommodation/The Roundabout Hotel.jpg" alt="Description" class="map-image">
       <p class="map-description">The Roundabout Hotel</p>
       <p class="map-description">Monkmead Lane, West Chiltington, West Sussex RH20 2PF</p>
       <p class="map-description">Distance from venue: 9km</p>
@@ -567,9 +897,9 @@ font-size: 25px;
           <div class="map">
             <iframe width="100%" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.5350685119628907%2C50.99874050876604%2C-0.34744262695312506%2C51.07732184504119&amp;layer=transportmap&amp;marker=51.03804783581661%2C-0.4412555694580078" 
             style="border: 1px solid black"></iframe><br/><small><a 
-              href="https://www.openstreetmap.org/?mlat=51.0380&amp;mlon=-0.4413#map=13/51.0380/-0.4413&amp;layers=TN">View Larger Map</a></small>
+              href="https://www.openstreetmap.org/?mlat=51.0380&amp;mlon=-0.4413#map=13/51.0380/-0.4413&amp;layers=TN"></a></small>
           </div>
-          <img src="../Assests/Images/Acommodation/Travelodge_Billingshurst_FiveOaks_EXT.jpg" alt="Description" class="map-image">
+          <img src="../assests/Images/Acommodation/Travelodge_Billingshurst_FiveOaks_EXT.jpg" alt="Description" class="map-image">
           <p class="map-description">Travellodge Billingshurst</p>
           <p class="map-description">A29 Stane Street, Five Oaks, Billingshurst, RH14 9AE, United Kingdom</p>
           <p class="map-description">Distance: 10km.</p>
