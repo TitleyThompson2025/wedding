@@ -6,33 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Emma and David wedding 2.0</title>
 <style>
-    .breadcrumb {
-  list-style: none;
-  display: flex;
-  padding: 8px 16px;
-  background-color: #FFFAF1;
-  border-radius: 5px;
-}
 
-.breadcrumb-item {
-  font-size: 16px;
-  color: #567033;
-}
-
-.breadcrumb-item a {
-  color: #567033;
-  text-decoration: none;
-}
-
-.breadcrumb-item.active {
-  color: #6c757d; /* Active item (current page) color */
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-  content: ">";
-  padding: 0 8px;
-  color: #6c757d; /* Separator color */
-}
 @font-face {
   font-family: 'my-everything';
   src: url('./my-everything/My\ Everything\ TRIAL.ttf') format('woff');
@@ -41,13 +15,16 @@
   font-family: 'legrand';
   src: url('') format('truetype');
 }
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'legrand', 'regluar' ;
-  background-color: #FFFAF1;
-  padding-top: 60px; /* Adjust this value based on your header's height */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+
+/*Header*/
+
 .header-container {
     display: flex;
     align-items: center; /* Ensure items are vertically centered */
@@ -64,115 +41,45 @@ body {
     justify-content: flex-start; /* Align image to the left */
     align-items: center; /* Center image vertically */
     padding: 0; /* Adjust as necessary */
+    margin-left: -30px;
+    margin-top: -30px;
+    margin-right: -30px;
 }
 .header-image-container img {
     max-width: 150px; /* or 200px for larger screens, adjust as necessary */
     height: auto;
 }
+
 .header-container:after {
     content: "";
     display: table;
     clear: both;
 }
-/* Adjust padding on the body to prevent overlap */
-body {
-    padding-top: 30px !important; /* Adjust based on the header's height */
-}
 
-/* Ensure .header-text-content and .hamburger-menu are correctly aligned */
 .header-text-content {
     display: flex;
     justify-content: flex-end; /* Align menu items to the right */
     align-items: center; /* Center items vertically */
     width: 100%;
 }
-.hamburger-menu {
-    display: none; /* Initially hidden, shown on smaller screens */
-} 
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block; /* Show on smaller screens */
-        color: #567033;
-    }
-    .menu-items {
-        display: none; /* Hide menu items, show hamburger menu */
-}
-    }
-
-/* For larger screens, adjust the size of the header image */
-@media (min-width: 1024px) {
-    .header-image-container img {
-        max-width: 200px; /* Larger image on larger screens */
-    }
-
-    /* Adjust padding-top of body based on the new header height */
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
-    }
-}
-.hamburger-menu {
-    display: none; /* Hidden by default */
-    font-size: 40px; /* Icon size */
-    cursor: pointer; /* Indicates it's clickable */
-    color: #567033;
-}
-@media (max-width: 768px) {
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger icon on smaller screens */
-    }
-}
-.modal {
-  display: none; 
-  position: fixed;
-  z-index: 10; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+.header-container, .image-container, .text-content-container, .modal-content {
+    max-width: 100%; /* Ensures no element is wider than the viewport */
 }
 
-.modal-content {
-  background-color: var(--modal-background-color);
-  margin: 20% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+
+/* Top Menu */
+
+.top-menu {
+    background-color: #FFFAF1;
+    white-space: nowrap;  /* Prevents wrapping of menu items */
+    width: 100%;
+    overflow-x: hidden;
 }
 
-.modal-open .menu-items {
-    display: none !important;
-}
-/* Modal Link Styling */
-#myModal .modal-content a {
-    color: #567033; /* Matches the primary text color used elsewhere */
-    text-decoration: underline; /* Removes underline */
-    cursor: pointer; /* Retains the pointer to indicate clickability */
-}
-
-#myModal .modal-content a:hover, 
-#myModal .modal-content a:focus {
-    color: #6c757d; /* Darker shade for hover/focus states */
-    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
-}
-
-/* The Close Button */
-.close {
-  color: #567033;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.menu-items {
+  display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    width: 100%;
 }
 
 /* Targeting the container of the menu */
@@ -196,9 +103,6 @@ body {
     border-bottom: none !important;
     text-decoration: none; /* Removing underline on hover to clean up appearance */
 }
-body {
-  background-color: ; /* Your site's background color */
-}
 .top-text .text-content { 
   font-family: 'my-everything', woff;
 }
@@ -214,14 +118,11 @@ body {
   font-size: 30px;
   color: #567033;
 }
-body {
-  position: relative; /* This makes the body the reference point for absolute positioning */
-}
 .resize-image {
   width: 150px;  /* Adjust the width as desired */
   height: auto;  /* Keeps the aspect ratio intact */
 }
-top-left-image {
+.top-left-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -250,13 +151,11 @@ ul {
 
 /* Make list items and links into block-level elements */
 ul.top-menu li {
-    display: inline;
-    margin-right: 20px;
-}
-/* Style the links */
-ul.top-menu li {
+  display: inline-block;  /* Makes each item inline but block for formatting */
+    margin-right: 10px !important; /* Keeps space between items */
+    white-space: nowrap;
     text-decoration: none;
-    color: #023020
+    color: #023020;
     padding: 10px;
 }
 .top-menu li {
@@ -288,166 +187,177 @@ ul.top-menu-link{
   background-color: #567033;
   color: green;
 }
-.top-menu {
+
+
+
+
+
+/*Body*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'legrand', 'regluar' ;
   background-color: #FFFAF1;
+  padding-top: 30px !important; /* Adjust based on the header's height */
+  position: relative; /* This makes the body the reference point for absolute positioning */
 }
-.content {
-  margin-top: 20px;
-  padding: 20px;
-}
-.countdown-content {
-color: #567033;
-  text-align: center;
-  font-size: 25px;
-  color: #567033;
-  padding: 20px 30px;
-  background-color: #FFFAF1;
-  border-bottom: 1px solid #567033;
-  overflow: hidden;
-  text-align: center;
-  }
-  .img {
-  background-color: #FFFAF1;
-  -ms-flex-item-align: center;
-  orientation: horizontal;
-  padding: 20px 30px;
-  }
-.home_text {
-font-size: 25px;
-  color: #567033;
-  text-align: center;
-  }
-  .image-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Start with aligning items to the bottom */
+
+
+
+
+/* Hamburger */
+
+.hamburger-menu {
+    font-size: 40px; /* Icon size */
+    cursor: pointer; /* Indicates it's clickable */
+    color: #567033; 
+    display: none; /* Initially hidden, shown on smaller screens */
+    justify-content: flex-end; /* Align menu items to the right */
+    align-items: right !important;
     width: 100%;
-    height: auto;
-    min-height: 18pc; /* Adjust this value as needed */
-  }
-  .image {
-    flex: 1;
-    padding: 3px;
-    height: auto;
-    display: flex;
-    align-self: center;
-    max-width: 300px;
-}
-.image img {
-    width: 100%;
-    height: 15pc;
-    object-fit: cover; /* covers the area of the container without losing aspect ratio */
 }
 
-@media (min-width: 768px) { /* targets screens wider than 768 pixels */
-  .image img {
-      min-height: 500px; /* increases the height of the images on larger screens */
-  }
-}
-.image-container2 {
-    display: flex;
-    flex-wrap: wrap; /* This allows items to wrap to the next line */
-    justify-content: space-between; /* Keeps space distribution between images */
-    align-items: flex-start; /* Aligns items to the start of the container */
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    min-height: 18pc; /* Adjust this value as needed */
-    border-top: 1px solid #023020; /* Add a solid line under the header */
-    padding-top: 3px; /* Adds some space between the line and the images */
-    padding-left: 0px;
-    padding-right: 0px;
-    box-sizing: border-box;
-    margin: 0 auto;
-  }
-.image2 {
-    flex: 1 1 calc(16.66% - 4px); /* Flex-grow, flex-shrink, and base width */
-    margin: 2px; /* Optional: adds some space around images */
-    max-width: 300px; /* Adjust based on your requirements */
-    height: auto;
-    display: flex;
-    justify-content: center; /* Centers images within the div */
-}
-.image2 img {
-    width: 100%; /* Ensures image width fills the container */
-    height: auto; /* Maintains aspect ratio */
-    object-fit: cover; /* Ensures the images cover the container */
-}
-@media (max-width: 768px) { /* Adjust this breakpoint as needed */
-  .image2 {
-    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
-  }
-}
-/* Offset every other image */
-.image:nth-child(odd) {
-    align-self: flex-end; /* Odd images will align to the bottom */
-}
-
-.image:nth-child(even) {
-    align-self: flex-start; /* Even images will align to the top */
-}
-/* Offset every other image */
-.image2:nth-child(odd) {
-    align-self: flex-end; /* Odd images will align to the bottom */
-}
-
-.image2:nth-child(even) {
-    align-self: flex-start; /* Even images will align to the top */
-}
-
-#mapid {
-  height: 150px;
-  width: 150px; /* Specific width */
-}
-.maps-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding: 0 10px;
-}
-
-.map-container {
-    flex: 1; /* Equal width */
-    text-align: center; /* Center the content */
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.map {
-    width: 100%; /* Full width of the container */
-    height: 200px; /* Adjust height as needed */
-    background-color: #EEE; /* Placeholder background */
-    margin-bottom: 10px;
-}
-
-.map-image {
-    width: 100%; /* Responsive image */
-    height: 350px; /* Maintain aspect ratio */
-    margin-bottom: 10px;
-}
-
-.map-description {
-    font-size: 14px;
-    color: #333;
-}
-
-@media (max-width: 768px) {
-    .maps-container {
-        flex-direction: column; /* Stack the maps vertically on small screens */
-    }
-}
-.google-sheet {
-  height: auto;
-    display: flex;
-    justify-content: center;
-}
+/* google sheet container */
 
 .google-sheet-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center align items vertically */
-  margin-top: 10px; /* Adjust spacing as needed */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: calc(100% - 20px);
+    height: calc(100vh - 20px);
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #023020;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    z-index: 10;
 }
+
+.google-sheet {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 2px;
+    z-index: 3000;
+}
+
+.google-sheet iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 2px;
+    z-index: 3000;
+}
+
+.background-image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('../Assests/Images/trees/Thin\ Two-Woods-Woodland.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; /* Ensure the background is behind everything */
+}
+
+
+/* Modal */
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 20000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #ffffff; 
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Modal Link Styling */
+#myModal .modal-content a {
+    color: #567033; /* Matches the primary text color used elsewhere */
+    text-decoration: underline; /* Removes underline */
+    cursor: pointer; /* Retains the pointer to indicate clickability */
+}
+
+#myModal .modal-content a:hover, 
+#myModal .modal-content a:focus {
+    color: #567033; /* Darker shade for hover/focus states */
+    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
+}
+/* Additional CSS to ensure menu-items are hidden when modal is displayed */
+.modal-open .menu-items {
+    display: none !important;
+}
+/* The Close Button */
+.close {
+  color: #567033;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #ffffff; 
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Modal Link Styling */
+#myModal .modal-content a {
+    color: #567033; /* Matches the primary text color used elsewhere */
+    text-decoration: underline; /* Removes underline */
+    cursor: pointer; /* Retains the pointer to indicate clickability */
+}
+
+#myModal .modal-content a:hover, 
+#myModal .modal-content a:focus {
+    color: #567033; /* Darker shade for hover/focus states */
+    text-decoration: underline; /* Optionally add underline on hover/focus for clarity */
+}
+/* Additional CSS to ensure menu-items are hidden when modal is displayed */
+.modal-open .menu-items {
+    display: none !important;
+}
+
+
+
+ /* images */
+
+
 
 .left-image-container,
 .right-image-container {
@@ -457,26 +367,167 @@ font-size: 25px;
   align-items: center; /* Center content vertically */
 }
 
-.google-sheet {
-  /* Adjust iframe styling if needed, ensuring it fits well within the flex layout */
-  flex: 0 0 640px; /* Do not grow or shrink, width set to 640px */
-  height: 643px; /* Height as previously set */
-  border: 0;
-  margin: 0 20px; /* Add some space between the images and the form */
-}
-
 /* Example image styling */
 .image {
   max-width: 100%;
   height: auto;
 }
 
+
+/* Screen size larger than 1024px */
+
+@media (min-width: 1024px) {
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+
+    /* Adjust padding-top of body based on the new header height */
+    body {
+        padding-top: 210px; /* Adjust based on actual header height */
+    }
+}
+
+
+/* Screen size larger than 769px */
+
+
+@media (min-width: 768px) { /* targets screens wider than 768 pixels */
+  .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+  }
+}
+
+
+@media (min-width: 769px) {
+    
+    .image {
+        width: auto; /* Auto width for larger screen images */
+        height: 100%; /* Full height */
+    }
+}
+
+@media (min-width: 768px) {
+  .google-sheet-container {
+    width: auto; /* Allow the container to adjust its width */
+    max-width: calc(100% - 20px); /* Ensure it doesn't exceed the viewport width minus 20px */
+    margin: 10px auto; /* Center the container and provide a 10px margin */
+    padding: 0; /* Remove any padding */
+  }
+
+  .google-sheet {
+    width: calc(100% - 10px); /* Adjust width to be 10px less than the container */
+  }
+
+  .google-sheet iframe {
+    width: 100%; /* Ensure iframe takes full width of the google-sheet div */
+  }
+}
+
+
+
+
+/* Screen size smaller than 768px */
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+      display: flex; /* Hidden by default */
+      font-size: 40px; /* Icon size */
+      cursor: pointer; /* Indicates it's clickable */
+      color: #567033; 
+      justify-content: flex-end; /* Align menu items to the right */
+      align-items: right !important;
+      order: 2;
+      width: 100%;
+    }
+    .menu-items {
+        display: none; /* Hide menu items, show hamburger menu */
+}
+    }
+
+@media (max-width: 768px) {
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+}
+@media (max-width: 768px) {
+    .maps-container {
+        flex-direction: column; /* Stack the maps vertically on small screens */
+    }
+}
+@media (max-width: 768px) { /* Adjust this breakpoint as needed */
+  .image2 {
+    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+  }
+}
+
+/* Background image for smaller screens */
+
+/* Hide the side images and display the background image on smaller screens */
+@media (max-width: 768px) {
+    .left-image-container, .right-image-container {
+        display: none !important; /* Hide side images on smaller screens */
+    }
+    .header-container {
+        position: relative;
+        z-index: 30; /* Ensures header is above everything else */
+    }
+    @media (max-width: 768px) {
+    .google-sheet-container {
+        width: 90%; /* Adjust width to fit smaller screens */
+        height: auto; /* Let height adjust automatically */
+    }
+
+    .google-sheet {
+        height: auto; /* Auto height */
+    }
+
+    .google-sheet iframe {
+        height: auto; /* Auto height */
+    }
+}
+}
+
+
+/* Screen size smaller than 480px */
+
+@media (max-width: 425px) {
+
+    .header-container, .google-sheet-container {
+        padding-left: 10px; /* Adds padding to the left */
+        padding-right: 10px; /* Adds padding to the right */
+    }
+}
+@media (max-width: 425px) {
+    .background-image {
+        display: none;
+    }
+    .google-sheet-container {
+        width: calc(100% - 20px); /* Full width minus some padding */
+        height: auto; /* Auto height */
+        padding: 10px; /* Padding around container */
+    }
+
+    .google-sheet {
+        height: auto; /* Auto height */
+    }
+
+    .google-sheet iframe {
+        height: auto; /* Auto height */
+    }
+}
+
+
+
+
 </style></head>
 <body>
   <link rel="stylesheet" type="text/css" href="styles.css">
       <div class="header-container">
         <div class="header-image-container">
-            <img src="../Assests/Images/logo/ed-high-resolution-logo.png"  
+            <img src="../assests/Images/logo/ed-high-resolution-logo.png"  
             alt="a figure of a couple in a wedding dress and suit, with the letters E and D beneath, below this the thrase Wedding 2025 is shown"
              id="top-left-image" class="color-overlay">
         </div>
@@ -488,7 +539,7 @@ font-size: 25px;
                   <li><a href="../index.html" class="top-menu-link">Home</a></li>
                   <li><a href="./Theday.html" class="top-menu-link">The Day</a></li>
                   <li><a href="./getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
-                  <li><a href="./Acommodation.html" class="top-menu-link">Accommodation</a></li>
+                  <li><a href="./Acommodation.html" class="top-menu-link">Accomodation</a></li>
                   <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In The Area</a></li>
                   </div>
                   </ul>
@@ -510,45 +561,78 @@ font-size: 25px;
     </div>
     </div>
     <script>
-      $(document).ready(function(){
-     $(".hamburger-menu").click(function(event){
-         event.stopPropagation(); // Prevents triggering any parent event handlers
-         $("#myModal").css('display', 'block');  // Open the modal
-         return false; // Stops the event from propagating further
-     });
-  
-     $(".close").click(function(){
-         $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
-     });
-  
-     // Close modal when clicking outside of it
-     $(window).click(function(event) {
-         if($(event.target).hasClass('modal')) {
-             $("#myModal").css('display', 'none');
-         }
-     });
-  
-     // Optional: Dynamically set the modal background from a JavaScript variable
-     var modalBackgroundColor = '#ffffff';  // Example: white background
-     document.documentElement.style.setProperty('--modal-background-color', modalBackgroundColor);
-  });
+    $(document).ready(function(){
+    // Function to adjust layout for responsive behavior
+    function adjustLayout() {
+        // This function can contain responsive adjustments unrelated to the modal
+        // Since you want the modal CSS untouched, we won't modify anything related to it here
+    }
+
+    // Initial call to set everything up correctly
+    adjustLayout();
+
+    // Handling the hamburger menu interactions
+    $(".hamburger-menu").click(function(event){
+        event.stopPropagation(); // Prevents triggering any parent event handlers
+        $("#myModal").css('display', 'block');  // Open the modal
+        return false; // Stops the event from propagating further
+    });
+
+    $(".close").click(function(){
+        $("#myModal").css('display', 'none');  // Close the modal on clicking 'x'
+    });
+
+    // Close modal when clicking outside of it
+    $(window).click(function(event) {
+        if($(event.target).hasClass('modal')) {
+            $("#myModal").css('display', 'none');
+        }
+    });
+
+    // Respond to window resizing
+    $(window).resize(function() {
+        adjustLayout(); // Adjust the layout when the window is resized
+    });
+});
      </script>
   </div>
   <div>
   </div>
-<h></h>
+  <h></h>
+  <div class="background-image-container">
 <div class="google-sheet-container">
-  <div class="left-image-container">
-    <img src="../Assests/Images/trees/Left trees.jpg" alt="Left Image" class="image">
+  <div class="google-sheet">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdq5kpiqsr4Y9nZ-lLKUAAXR0B82BD2hGkm_7vBclwPAm_ghg/viewform?embedded=true" width="640" height="1172" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
-<div class="google-sheet">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-aIGtGHmnMOhJoDeXRYzvTJCVUAh2gS8hXiPR9ZKpT7_eKg/viewform?embedded=true" 
-width="640" height="643" frameborder="0" 
-marginheight="0" marginwidth="0">Loading…</iframe>
-  </div>
-  <div class="right-image-container">
-    <img src="../Assests/Images/trees/Trees right.jpg" alt="Right Image" class="image">
-  </div>
+</div>
+</div>
+<script>
+ function resizeIframe() {
+    var iframe = document.querySelector('.google-sheet iframe');
+    var container = document.querySelector('.google-sheet-container');
+    var screenWidth = window.innerWidth;
+
+    if (screenWidth <= 425) {
+        iframe.style.width = '100%';
+        iframe.style.height = 'calc(100vh - 20px)';
+        container.style.width = 'calc(100% - 20px)';
+    } else if (screenWidth <= 768) {
+        iframe.style.width = '100%';
+        iframe.style.height = 'calc(100vh - 20px)';
+        container.style.width = 'calc(100% - 20px)';
+    } else {
+        iframe.style.width = '100%';
+        iframe.style.height = 'calc(100vh - 20px)';
+        container.style.width = 'calc(100% - 20px)';
+        container.style.height = 'calc(100vh - 20px)';
+    }
+}
+
+window.addEventListener('resize', resizeIframe);
+document.addEventListener('DOMContentLoaded', resizeIframe);
+
+</script>
+</div>
 </div>
 </div>
   </div>
