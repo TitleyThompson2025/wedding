@@ -330,6 +330,7 @@ body {
 .image:nth-child(even) {
     align-self: flex-start; /* Even images will align to the top */
 }
+
 /* Offset every other image */
 .image2:nth-child(odd) {
     align-self: flex-end; /* Odd images will align to the bottom */
@@ -473,6 +474,9 @@ body {
         padding: 0 20%; /* Centers text with padding on wider screens */
     }
     .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+  }
+   .image2 img {
       min-height: 500px; /* increases the height of the images on larger screens */
   }
 }
