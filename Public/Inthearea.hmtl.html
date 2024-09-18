@@ -467,8 +467,8 @@ body, h2, p {
         margin: 50px 20px; /* Adds top and bottom margin for spacing, side margins for centering */
         height: auto;
         box-sizing: border-box; /* Ensures padding and border are included in the width */
+        z-index: 50; 
     }
-
     .box-half {
         width: 100%; /* Full width of the parent container */
         display: flex;
@@ -524,6 +524,9 @@ body, h2, p {
         max-width: 200px; /* Larger image on larger screens */
         height: auto;
     }
+     .responsive-box-left, .responsive-box-right {
+     z-index: 50; 
+    }
   }
 
 
@@ -542,6 +545,9 @@ body, h2, p {
     .header-image-container img {
         max-width: 200px; /* Larger image on larger screens */
         height: auto;
+    }
+    .responsive-box-left, .responsive-box-right {
+     z-index: 50; 
     }
 }
 
@@ -575,6 +581,9 @@ body, h2, p {
         display: block;
         color: #567033;
     }
+    .responsive-box-left, .responsive-box-right {
+     z-index: 50; 
+    }
 }
 
 
@@ -596,6 +605,9 @@ body, h2, p {
 
     .menu-items {
         display: none; /* Hide full menu items when showing hamburger icon */
+    }
+    .responsive-box-left, .responsive-box-right {
+     z-index: 50; 
     }
 }
 
