@@ -451,13 +451,9 @@ body {
     .hamburger-menu {
         display: block; /* Show hamburger icon on smaller screens */
     }
-}
-@media (max-width: 768px) {
     .maps-container {
         flex-direction: column; /* Stack the maps vertically on small screens */
     }
-}
-@media (max-width: 768px) { /* Adjust this breakpoint as needed */
   .image2 {
     flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
   }
@@ -474,7 +470,16 @@ body {
         position: relative;
         z-index: 30; /* Ensures header is above everything else */
     }
-    @media (max-width: 768px) {
+     .hamburger-menu {
+      display: flex; /* Hidden by default */
+      font-size: 40px; /* Icon size */
+      cursor: pointer; /* Indicates it's clickable */
+      color: #567033; 
+      justify-content: flex-end; /* Align menu items to the right */
+      align-items: right !important;
+      order: 2;
+      width: 100%;
+    }
     .google-sheet-container {
         width: 90%; /* Adjust width to fit smaller screens */
         height: auto; /* Let height adjust automatically */
@@ -487,7 +492,6 @@ body {
     .google-sheet iframe {
         height: auto; /* Auto height */
     }
-}
 }
 
 
