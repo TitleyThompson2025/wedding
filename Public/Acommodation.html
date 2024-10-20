@@ -672,6 +672,52 @@ body {
     }
 }
 
+    .text-content-container {
+    width: 100%; /* Ensures the container spans the full width of the screen */
+    padding: 20px; /* Adds some padding inside the container for better readability */
+    background-color: #FFFAF1; /* Matches the background color of other containers */
+    box-sizing: border-box; /* Ensures padding does not affect the overall width */
+    font-family: Arial, sans-serif;
+    line-height: 1.6; /* Adjusts line height for better readability */
+    text-align: center; /* Centers the text within the container */
+    color:#567033;
+    font-size: 30px;
+}
+.text-content-container p, .text-content-container h1, .text-content-container h2, .text-content-container h3, .text-content-container h4, .text-content-container h5, .text-content-container h6 {
+    text-align: center; /* Explicitly centers all text elements */
+    color:#567033;
+    font-size: 30px;
+}
+@media (min-width: 769px) {
+    .text-content-container p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+}
+
+@media (max-width: 768px) {
+  .text-content-container p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+
+  }
+  @media (max-width: 425px) {
+    .text-content-container p {
+        font-size: 4vw; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+  }
+  @media (min-width: 2560px) {
+    .text-content-container p, {
+        font-size: 40px; /* Larger text for better readability */
+        padding: 0 15%; /* More breathing room on the sides */
+    }
+    /* Adjusting sizes for detailed sections like RSVP, accommodation details */
+    .text-content-container, .text-content-container1 {
+        font-size: 40px; /* Increasing content font size for better readability */
+    }
+}
 
 </style>
 </head>
@@ -752,6 +798,10 @@ body {
 });
     </script>
 <h></h>
+  </div>
+</div>
+    <div class="text-content-container">
+  <p>Here is a short list of some local accomodation, although this is not exhaustive</p>
   </div>
 </div>
 <div class="maps-container">
