@@ -237,6 +237,7 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  font-size: 20px !important;
 }
 
 /* Modal Link Styling */
@@ -477,6 +478,59 @@ color: #567033;
 }
 
 
+/* Screen size larger than 1150px */
+
+@media (Max-width: 1150px) {
+
+    /* Enhancing header and menu readability */
+    .header-text-content, .top-menu-link {
+        font-size: 22px; /* Increase font size for navigational links */
+    }
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 37px;
+    }
+    .menu-items {
+        display: none; /* Hide menu items, show hamburger menu */
+    }
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+
+    /* Adjusting sizes for detailed sections like RSVP, accommodation details */
+    .text-content-container, .text-content-container1 {
+        font-size: 40px; /* Increasing content font size for better readability */
+    }
+
+  .header-image-container img {
+        max-width: 400px; /* Further increase logo size */
+    }
+
+    .header-text-content, .top-menu-link {
+        font-size: 45px; /* Increase font size for header content */
+        padding: 20px 40px; /* Adjust padding to better align with the larger text and image */
+    }
+
+    /* Adjusting the overall header container padding for better alignment */
+    .header-container {
+        padding: 20px 40px; /* Increase padding to ensure ample space around elements */
+    }
+
+    /* Increasing the font size for the main navigation links in the header */
+    .top-menu li {
+        font-size: 45px; /* Further increase menu item font size for better accessibility */
+        padding: 25px 50px; /* Increase padding for larger hit areas */
+    }
+
+    .top-menu {
+        padding: 0 5%; /* Optional: add padding to the entire top menu for better edge spacing */
+    }
+}
 
 
 /* Screen size larger than 1024px */
@@ -507,6 +561,9 @@ color: #567033;
     .image img {
       min-height: 500px; /* increases the height of the images on larger screens */
   }
+  .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
 }
 
 
@@ -559,6 +616,9 @@ color: #567033;
     .home-text1 {
         font-size: 20px; /* Smaller font size for smaller screens */
     }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
 }
 
 
@@ -580,6 +640,9 @@ color: #567033;
         max-width: 100%; /* Ensure max width is not limiting */
         object-fit: contain;
     }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
 }
 
 
@@ -598,6 +661,9 @@ color: #567033;
         flex-basis: 100%; /* Full width on smaller screens */
         max-width: 100%; /* Ensure max width is not limiting */
         object-fit: contain;
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
     }
 }
  
@@ -618,6 +684,9 @@ color: #567033;
         flex-basis: 100%; /* Full width on smaller screens */
         max-width: 100%; /* Ensure max width is not limiting */
         object-fit: contain;
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
     }
 }
 
@@ -642,12 +711,8 @@ color: #567033;
         width: 23pc;
     }
 
-    .countdown-content, .modal-content {
+    .countdown-content{
         font-size: 40px; /* Larger font size in modal and countdown elements */
-    }
-
-    .modal-content {
-        width: 60%; /* Adjust modal width to better suit larger screens */
     }
 
     /* Enhancing header and menu readability */
@@ -716,6 +781,7 @@ color: #567033;
                   <li><a href="./Public/Acommodation.html" class="top-menu-link">Accommodation</a></li>
                   <li><a href="./Public/Inthearea.hmtl" class="top-menu-link">In The Area</a></li>
                   <li><a href="./Public/RSVP.html" class="top-menu-link">RSVP</a></li>
+                  <li><a href="./Public/Gift.html" class="top-menu-link">Registry</a></li>
                 </div>
               </ul>
             </div>
@@ -728,6 +794,7 @@ color: #567033;
                   <li><a href="./Public/Acommodation.html">Accommodation</a></li>
                   <li><a href="./Public/Inthearea.hmtl">In The Area</a></li>
                   <li><a href="./Public/RSVP.html">RSVP</a></li>
+                  <li><a href="./Public/Gift.html">Registry</a></li>
                 </ul>
               </div>
             </div>
