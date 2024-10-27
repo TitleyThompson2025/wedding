@@ -240,6 +240,7 @@ h3 {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  font-size: 20px !important;
 }
 
 /* Modal Link Styling */
@@ -453,15 +454,70 @@ h3 {
 
 
 
+/* Screen size larger than 1150px */
+
+@media (Max-width: 1150px) {
+
+/* Enhancing header and menu readability */
+.header-text-content, .top-menu-link {
+    font-size: 22px; /* Increase font size for navigational links */
+}
+.hamburger-menu {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 37px;
+}
+.menu-items {
+    display: none; /* Hide menu items, show hamburger menu */
+}
+.menu-items {
+    display: none; /* Hide menu items on smaller screens */
+}
+.hamburger-menu {
+    display: block; /* Show hamburger icon on smaller screens */
+}
+
+/* Adjusting sizes for detailed sections like RSVP, accommodation details */
+.text-content-container, .text-content-container1 {
+    font-size: 40px; /* Increasing content font size for better readability */
+}
+
+.header-image-container img {
+    max-width: 400px; /* Further increase logo size */
+}
+
+.header-text-content, .top-menu-link {
+    font-size: 45px; /* Increase font size for header content */
+    padding: 20px 40px; /* Adjust padding to better align with the larger text and image */
+}
+
+/* Adjusting the overall header container padding for better alignment */
+.header-container {
+    padding: 20px 40px; /* Increase padding to ensure ample space around elements */
+}
+
+/* Increasing the font size for the main navigation links in the header */
+.top-menu li {
+    font-size: 45px; /* Further increase menu item font size for better accessibility */
+    padding: 25px 50px; /* Increase padding for larger hit areas */
+}
+
+.top-menu {
+    padding: 0 5%; /* Optional: add padding to the entire top menu for better edge spacing */
+}
+}
+
+
 /* Screen size larger than 1024px */
 
 @media (min-width: 1024px) {
-    .header-image-container img {
-        max-width: 200px; /* Larger image on larger screens */
-    }
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
-    }
+.header-image-container img {
+    max-width: 200px; /* Larger image on larger screens */
+}
+body {
+    padding-top: 210px; /* Adjust based on actual header height */
+}
 }
 
 
@@ -481,6 +537,9 @@ h3 {
     .image img {
       min-height: 500px; /* increases the height of the images on larger screens */
   }
+  .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
 }
 
 
@@ -544,8 +603,11 @@ h3 {
   }
     .menu-items {
     display: none; /* Hide menu items, show hamburger menu */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
   }
-}
 
 
 
@@ -720,6 +782,7 @@ h3 {
             <li><a href="./Acommodation.html" class="top-menu-link">Accommodation</a></li>
             <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In The Area</a></li>
             <li><a href="./RSVP.html" class="top-menu-link">RSVP</a></li>
+            <li><a href="./Gift.html" class="top-menu-link">Registry</a></li>
           </div>
         </ul>
       </div>
@@ -732,6 +795,7 @@ h3 {
             <li><a href="./Acommodation.html">Accommodation</a></li>
             <li><a href="./Inthearea.hmtl">In The Area</a></li>
             <li><a href="./RSVP.html">RSVP</a></li>
+            <li><a href="./Gift.html">Registry</a></li>
           </ul>
         </div>
       </div>
@@ -842,5 +906,3 @@ h3 {
     </div>
 </body>
 </html>
-
-
