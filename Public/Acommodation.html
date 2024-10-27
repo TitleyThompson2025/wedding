@@ -421,229 +421,6 @@ body {
     margin-bottom: 10px; /* Space between map and image */
 }
 
-
-
-
-/* Screen size larger than 769px */
-
-@media (min-width: 769px) {
-    .text-content-container p {
-        font-size: 20px; /* Larger font size for wider screens */
-        padding: 0 20%; /* Centers text with padding on wider screens */
-    }
-    .text-content-container1 p {
-        font-size: 20px; /* Larger font size for wider screens */
-        padding: 0 20%; /* Centers text with padding on wider screens */
-    }
-    .image img {
-      min-height: 500px; /* increases the height of the images on larger screens */
-  }
-    .map-container {
-        flex: 0 1 calc(33.33% - 20px); /* Adjust based on your layout */
-        padding: 10px; /* Consistent padding around the items */
-        margin-bottom: 20px; /* Space between rows */
-        /* Ensure there's no right margin on the last item in a row */
-    }
-    .image img {
-      min-height: 500px; /* increases the height of the images on larger screens */
-    }
-}
-
-
-
-/* Screen size smaller than 768px */
-
-@media (max-width: 768px) {
-  .hamburger-menu {
-        display: block;
-        position: absolute;
-        right: 15px;
-        top: 37px;
-    }
-    .menu-items {
-        display: none; /* Hide menu items, show hamburger menu */
-    }
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger icon on smaller screens */
-    }
-    .info-box {
-      width: 30vw; /* Increase size for smaller screens if needed */
-      height: 30vw; /* Keep the height equal to the width */
-      font-size: 16px; /* Slightly larger font size for small screens */
-    }
-    .text-content-container p {
-        font-size: 16px; /* Adjusts font size for smaller screens */
-        padding: 0 10px; /* Adds padding on the sides for small screens */
-    }
-    .text-content-container1 p {
-        font-size: 16px; /* Adjusts font size for smaller screens */
-        padding: 0 10px; /* Adds padding on the sides for small screens */
-    }
-    .home-text1 {
-        font-size: 20px; /* Smaller font size for smaller screens */
-    }
-    .image2 {
-    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
-    }
-    .maps-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Centers the map containers */
-        max-width: 768px; /* Restricts the container's max width to 1024px */
-        margin: 0 auto; /* Centers the container */
-    }
-
-    .map-container {
-        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
-        max-width: 50%; /* Prevent any overflow or more than two items per row */
-        box-sizing: border-box; /* Includes padding and border in width calculation */
-        padding: 10px; /* Maintains spacing between the maps */
-        display: flex; /* Align items neatly */
-        flex-direction: column; /* Stack items vertically within the container */
-        align-items: center; /* Center items horizontally */
-    }
-}
-
-/* Screen size smaller than 600px */
-
-@media (max-width: 600px) {
-    .header-image-container{
-        padding: -200px;
-        margin-left: -30px;
-        margin-top: -30px;
-    }
-    .maps-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Centers the map containers */
-        max-width: 768px; /* Restricts the container's max width to 1024px */
-        margin: 0 auto; /* Centers the container */
-    }
-
-    .map-container {
-        flex: 0 0 50%; /* Two items per row, each taking up 50% of the line */
-        max-width: 50%; /* Prevent any overflow or more than two items per row */
-        box-sizing: border-box; /* Includes padding and border in width calculation */
-        padding: 10px; /* Maintains spacing between the maps */
-        display: flex; /* Align items neatly */
-        flex-direction: column; /* Stack items vertically within the container */
-        align-items: center; /* Center items horizontally */
-    }
-}
-
-
-/* Screen size smaller than 425px */
-
-/* Media query for very small screens, like small smartphones */
-@media (max-width: 425px) {
-  .home-text1 {
-    font-size: 16px; /* Even smaller font size for very small screens */
-  }
-    .maps-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers the containers */
-        padding: 0;
-        margin: 0 auto; /* Ensures everything is centered */
-        width: 100%; /* Account for padding */
-    }
-    .map-container {
-        flex: 0 0 90%; /* Each map container takes full width */
-        max-width: 100%; /* Ensures it doesn't exceed the screen width */
-        margin: 10px 0; /* Spacing between each map container */
-        box-sizing: border-box; /* Padding and border included in width calculation */
-        padding: 0 10px; /* Padding inside each map container */
-        border: 1px solid black; /* Adds a border around each map container */
-    }
-    .map, .map-image {
-        width: 100%; /* Ensures map and images resize to fit their containers */
-        height: auto; /* Keeps the map height responsive */
-    }
-    .map-description {
-        text-align: center; /* Ensures text is centered within the map container */
-        word-wrap: break-word;
-        hyphens: auto;
-        margin: 5px 10px; /* Adds margin around the text for padding within the container */
-        padding: 0 5px; /* Extra padding to ensure text doesn't touch the borders */
-        box-sizing: border-box; /* Includes padding in the element's total width and height */
-        width: 100%; /* Ensures the description uses the full width of the container */
-        font-size: 14px; /* Adjust font size as needed for better readability */
-    }
-}
-
-
-
-/* Screen size smaller than 320px */
-
-@media (max-width: 320px) {
-    .header-image-container{
-        margin-left: -30px;
-        margin-top: -30px;
-    }
-    .maps-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers the containers */
-        padding: 0;
-        margin: 0 auto; /* Ensures everything is centered */
-        width: 100%; /* Account for padding */
-    }
-    .map-container {
-        flex: 0 0 90%; /* Each map container takes full width */
-        max-width: 100%; /* Ensures it doesn't exceed the screen width */
-        margin: 10px 0; /* Spacing between each map container */
-        box-sizing: border-box; /* Padding and border included in width calculation */
-        padding: 0 10px; /* Padding inside each map container */
-        border: 1px solid black; /* Adds a border around each map container */
-    }
-    .map, .map-image {
-        width: 100%; /* Ensures map and images resize to fit their containers */
-        height: auto; /* Keeps the map height responsive */
-    }
-    .map-description {
-        text-align: center; /* Ensures text is centered within the map container */
-        word-wrap: break-word;
-        hyphens: auto;
-        margin: 5px 10px; /* Adds margin around the text for padding within the container */
-        padding: 0 5px; /* Extra padding to ensure text doesn't touch the borders */
-        box-sizing: border-box; /* Includes padding in the element's total width and height */
-        width: 100%; /* Ensures the description uses the full width of the container */
-        font-size: 14px; /* Adjust font size as needed for better readability */
-    }
-}
-
-
-/* Screen size larger than 1024px */
-
-@media (min-width: 1024px) {
-    .header-image-container img {
-        max-width: 200px; /* Larger image on larger screens */
-    }
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
-    }
-    .maps-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Centers the map containers */
-        max-width: 1024px; /* Restricts the container's max width to 1024px */
-        margin: 0 auto; /* Centers the container */
-    }
-
-    .map-container {
-        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
-        max-width: 50%; /* Prevent any overflow or more than two items per row */
-        box-sizing: border-box; /* Includes padding and border in width calculation */
-        padding: 10px; /* Maintains spacing between the maps */
-        display: flex; /* Align items neatly */
-        flex-direction: column; /* Stack items vertically within the container */
-        align-items: center; /* Center items horizontally */
-    }
-}
-
 /* Screen size larger than 1440px */
 
 @media (min-width: 1440px) {
@@ -719,6 +496,315 @@ body {
     }
 }
 
+/* Screen size larger than 1150px */
+
+@media (Max-width: 1150px) {
+
+/* Enhancing header and menu readability */
+.header-text-content, .top-menu-link {
+    font-size: 22px; /* Increase font size for navigational links */
+}
+.hamburger-menu {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 37px;
+}
+.menu-items {
+    display: none; /* Hide menu items, show hamburger menu */
+}
+.menu-items {
+    display: none; /* Hide menu items on smaller screens */
+}
+.hamburger-menu {
+    display: block; /* Show hamburger icon on smaller screens */
+}
+
+/* Adjusting sizes for detailed sections like RSVP, accommodation details */
+.text-content-container, .text-content-container1 {
+    font-size: 40px; /* Increasing content font size for better readability */
+}
+
+.header-image-container img {
+    max-width: 400px; /* Further increase logo size */
+}
+
+.header-text-content, .top-menu-link {
+    font-size: 45px; /* Increase font size for header content */
+    padding: 20px 40px; /* Adjust padding to better align with the larger text and image */
+}
+
+/* Adjusting the overall header container padding for better alignment */
+.header-container {
+    padding: 20px 40px; /* Increase padding to ensure ample space around elements */
+}
+
+/* Increasing the font size for the main navigation links in the header */
+.top-menu li {
+    font-size: 45px; /* Further increase menu item font size for better accessibility */
+    padding: 25px 50px; /* Increase padding for larger hit areas */
+}
+
+.top-menu {
+    padding: 0 5%; /* Optional: add padding to the entire top menu for better edge spacing */
+}
+}
+
+/* Screen size larger than 1024px */
+
+@media (min-width: 1024px) {
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+    body {
+        padding-top: 210px; /* Adjust based on actual header height */
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 1024px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+    
+}
+
+@media (max-width: 959px) {
+  .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 768px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+    .map-container {
+        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+  }
+
+/* Screen size larger than 769px */
+
+@media (min-width: 769px) {
+    .text-content-container p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+    .text-content-container1 p {
+        font-size: 20px; /* Larger font size for wider screens */
+        padding: 0 20%; /* Centers text with padding on wider screens */
+    }
+    .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+  }
+    .map-container {
+        flex: 0 1 calc(33.33% - 20px); /* Adjust based on your layout */
+        padding: 10px; /* Consistent padding around the items */
+        margin-bottom: 20px; /* Space between rows */
+        /* Ensure there's no right margin on the last item in a row */
+    }
+    .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+}
+
+
+
+/* Screen size smaller than 768px */
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 37px;
+    }
+    .menu-items {
+        display: none; /* Hide menu items, show hamburger menu */
+    }
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+    .info-box {
+      width: 30vw; /* Increase size for smaller screens if needed */
+      height: 30vw; /* Keep the height equal to the width */
+      font-size: 16px; /* Slightly larger font size for small screens */
+    }
+    .text-content-container p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .text-content-container1 p {
+        font-size: 16px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .home-text1 {
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
+    .image2 {
+    flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 768px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 45%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+}
+
+/* Screen size smaller than 600px */
+
+@media (max-width: 600px) {
+    .header-image-container{
+        padding: -200px;
+        margin-left: -30px;
+        margin-top: -30px;
+    }
+    .maps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the map containers */
+        max-width: 768px; /* Restricts the container's max width to 1024px */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .map-container {
+        flex: 0 0 50%; /* Two items per row, each taking up 50% of the line */
+        max-width: 50%; /* Prevent any overflow or more than two items per row */
+        box-sizing: border-box; /* Includes padding and border in width calculation */
+        padding: 10px; /* Maintains spacing between the maps */
+        display: flex; /* Align items neatly */
+        flex-direction: column; /* Stack items vertically within the container */
+        align-items: center; /* Center items horizontally */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+}
+
+
+/* Screen size smaller than 425px */
+
+/* Media query for very small screens, like small smartphones */
+@media (max-width: 425px) {
+  .home-text1 {
+    font-size: 16px; /* Even smaller font size for very small screens */
+  }
+    .maps-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers the containers */
+        padding: 0;
+        margin: 0 auto; /* Ensures everything is centered */
+        width: 100%; /* Account for padding */
+    }
+    .map-container {
+        flex: 0 0 90%; /* Each map container takes full width */
+        max-width: 100%; /* Ensures it doesn't exceed the screen width */
+        margin: 10px 0; /* Spacing between each map container */
+        box-sizing: border-box; /* Padding and border included in width calculation */
+        padding: 0 10px; /* Padding inside each map container */
+        border: 1px solid black; /* Adds a border around each map container */
+    }
+    .map, .map-image {
+        width: 100%; /* Ensures map and images resize to fit their containers */
+        height: auto; /* Keeps the map height responsive */
+    }
+    .map-description {
+        text-align: center; /* Ensures text is centered within the map container */
+        word-wrap: break-word;
+        hyphens: auto;
+        margin: 5px 10px; /* Adds margin around the text for padding within the container */
+        padding: 0 5px; /* Extra padding to ensure text doesn't touch the borders */
+        box-sizing: border-box; /* Includes padding in the element's total width and height */
+        width: 100%; /* Ensures the description uses the full width of the container */
+        font-size: 14px; /* Adjust font size as needed for better readability */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+}
+
+
+
+/* Screen size smaller than 320px */
+
+@media (max-width: 320px) {
+    .header-image-container{
+        margin-left: -30px;
+        margin-top: -30px;
+    }
+    .maps-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers the containers */
+        padding: 0;
+        margin: 0 auto; /* Ensures everything is centered */
+        width: 100%; /* Account for padding */
+    }
+    .map-container {
+        flex: 0 0 90%; /* Each map container takes full width */
+        max-width: 100%; /* Ensures it doesn't exceed the screen width */
+        margin: 10px 0; /* Spacing between each map container */
+        box-sizing: border-box; /* Padding and border included in width calculation */
+        padding: 0 10px; /* Padding inside each map container */
+        border: 1px solid black; /* Adds a border around each map container */
+    }
+    .map, .map-image {
+        width: 100%; /* Ensures map and images resize to fit their containers */
+        height: auto; /* Keeps the map height responsive */
+    }
+    .map-description {
+        text-align: center; /* Ensures text is centered within the map container */
+        word-wrap: break-word;
+        hyphens: auto;
+        margin: 5px 10px; /* Adds margin around the text for padding within the container */
+        padding: 0 5px; /* Extra padding to ensure text doesn't touch the borders */
+        box-sizing: border-box; /* Includes padding in the element's total width and height */
+        width: 100%; /* Ensures the description uses the full width of the container */
+        font-size: 14px; /* Adjust font size as needed for better readability */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+    }
+}
+
+
 </style>
 </head>
 <body>
@@ -739,6 +825,7 @@ body {
                   <li><a href="./getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
                   <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In the Area</a></li>
                   <li><a href="./RSVP.html" class="top-menu-link">RSVP</a></li>
+                  <li><a href="./Gift.html" class="top-menu-link">Registry</a></li>
                 </div>
                   </ul>
               </div>
@@ -754,6 +841,7 @@ body {
                 <li><a href="./getting-there-open-site.html">Getting There</a></li>
                 <li><a href="./Inthearea.hmtl">In The Area</a></li>
                 <li><a href="./RSVP.html">RSVP</a></li>
+                <li><a href="./Gift.html">Registry</a></li>
               </ul>
         </div>
           </div>
