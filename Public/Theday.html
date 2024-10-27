@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Emma and David wedding 2.0</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top Menu</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
+
 @font-face {
   font-family: 'my-everything';
   src: url('./my-everything/My\ Everything\ TRIAL.ttf') format('woff');
@@ -74,12 +77,7 @@
     overflow-x: hidden;
 }
 
-.menu-items {
-  display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    width: 100%;
-}
-
+/* Targeting the container of the menu */
 .top-menu,
 .menu-items {
     border: none !important;
@@ -108,7 +106,7 @@
   overflow: hidden;
 }
 .text-content, .menu-items {
-    text-align: center;
+    text-align: right;
 }
 .top-text .text-content {
   padding: 0px;
@@ -157,7 +155,7 @@ ul.top-menu li {
 }
 .top-menu li {
   color: #567033;
-  text-align: right !important;
+  text-align: right;
   text-orientation: horizontal;
   padding: 20px 30px;
   text-decoration: none;
@@ -232,12 +230,11 @@ body {
 }
 
 .modal-content {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  font-size: 20px !important;
 }
 
 /* Modal Link Styling */
@@ -273,37 +270,7 @@ body {
 
 
 
-/* countdown */
-
-.countdown-content {
-color: #567033;
-  padding: 15px;
-  background-color: #FFFAF1;
-  overflow: hidden;
-  text-align: center;
-  flex-grow: 1;
-  flex-basis: auto;
-  font-family: Arial, sans-serif;
-  line-height: 1.6; /* Adjusts line height for better readability */
-  text-align: center; /* Centers the text within the container */
-  font-size: 20px;
-  }
-
-  .event-info-container {
-    display: flex;
-    align-items: center; /* Adjusts vertical alignment */
-    justify-content: space-between; /* Manages spacing between the two containers */
-    flex-wrap: wrap;
-}
-
-.countdown-content {
-    flex: 1; /* Gives equal width, adjust as needed */
-    padding: 15px; /* Optional padding */
-}
-
-
-
- /* images */
+  /* images */ 
 
   .image-container {
     display: flex;
@@ -363,6 +330,7 @@ color: #567033;
 .image:nth-child(even) {
     align-self: flex-start; /* Even images will align to the top */
 }
+
 /* Offset every other image */
 .image2:nth-child(odd) {
     align-self: flex-end; /* Odd images will align to the bottom */
@@ -449,7 +417,7 @@ color: #567033;
 
   /* Text content */
 
- .text-content-container {
+.text-content-container {
     width: 100%; /* Ensures the container spans the full width of the screen */
     padding: 20px; /* Adds some padding inside the container for better readability */
     background-color: #FFFAF1; /* Matches the background color of other containers */
@@ -482,65 +450,68 @@ color: #567033;
 
 @media (Max-width: 1150px) {
 
-    /* Enhancing header and menu readability */
-    .header-text-content, .top-menu-link {
-        font-size: 22px; /* Increase font size for navigational links */
-    }
-    .hamburger-menu {
-        display: block;
-        position: absolute;
-        right: 15px;
-        top: 37px;
-    }
-    .menu-items {
-        display: none; /* Hide menu items, show hamburger menu */
-    }
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger icon on smaller screens */
-    }
+/* Enhancing header and menu readability */
+.header-text-content, .top-menu-link {
+    font-size: 22px; /* Increase font size for navigational links */
+}
+.hamburger-menu {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 37px;
+}
+.menu-items {
+    display: none; /* Hide menu items, show hamburger menu */
+}
+.menu-items {
+    display: none; /* Hide menu items on smaller screens */
+}
+.hamburger-menu {
+    display: block; /* Show hamburger icon on smaller screens */
+}
 
-    /* Adjusting sizes for detailed sections like RSVP, accommodation details */
-    .text-content-container, .text-content-container1 {
-        font-size: 40px; /* Increasing content font size for better readability */
-    }
+/* Adjusting sizes for detailed sections like RSVP, accommodation details */
+.text-content-container, .text-content-container1 {
+    font-size: 40px; /* Increasing content font size for better readability */
+}
 
-  .header-image-container img {
-        max-width: 400px; /* Further increase logo size */
-    }
+.header-image-container img {
+    max-width: 400px; /* Further increase logo size */
+}
 
-    .header-text-content, .top-menu-link {
-        font-size: 45px; /* Increase font size for header content */
-        padding: 20px 40px; /* Adjust padding to better align with the larger text and image */
-    }
+.header-text-content, .top-menu-link {
+    font-size: 45px; /* Increase font size for header content */
+    padding: 20px 40px; /* Adjust padding to better align with the larger text and image */
+}
 
-    /* Adjusting the overall header container padding for better alignment */
-    .header-container {
-        padding: 20px 40px; /* Increase padding to ensure ample space around elements */
-    }
+/* Adjusting the overall header container padding for better alignment */
+.header-container {
+    padding: 20px 40px; /* Increase padding to ensure ample space around elements */
+}
 
-    /* Increasing the font size for the main navigation links in the header */
-    .top-menu li {
-        font-size: 45px; /* Further increase menu item font size for better accessibility */
-        padding: 25px 50px; /* Increase padding for larger hit areas */
-    }
+/* Increasing the font size for the main navigation links in the header */
+.top-menu li {
+    font-size: 45px; /* Further increase menu item font size for better accessibility */
+    padding: 25px 50px; /* Increase padding for larger hit areas */
+}
 
-    .top-menu {
-        padding: 0 5%; /* Optional: add padding to the entire top menu for better edge spacing */
-    }
+.top-menu {
+    padding: 0 5%; /* Optional: add padding to the entire top menu for better edge spacing */
+}
 }
 
 
 /* Screen size larger than 1024px */
 
 @media (min-width: 1024px) {
-    .header-image-container img {
+.header-image-container img {
+    max-width: 200px; /* Larger image on larger screens */
+}
+body {
+    padding-top: 210px; /* Adjust based on actual header height */
+}
+.header-image-container img {
         max-width: 200px; /* Larger image on larger screens */
-    }
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
     }
 }
 
@@ -559,6 +530,9 @@ color: #567033;
         padding: 0 20%; /* Centers text with padding on wider screens */
     }
     .image img {
+      min-height: 500px; /* increases the height of the images on larger screens */
+  }
+   .image2 img {
       min-height: 500px; /* increases the height of the images on larger screens */
   }
   .header-image-container img {
@@ -586,9 +560,6 @@ color: #567033;
     }
     .hamburger-menu {
         display: block; /* Show hamburger icon on smaller screens */
-    }
-    .countdown-content {
-        font-size: 18px; /* Smaller font size for smaller screens */
     }
     .event-info-container {
         flex-direction: column; /* Stacks the containers vertically on smaller screens */
@@ -622,8 +593,6 @@ color: #567033;
 }
 
 
-
-
 /* Screen size smaller than 600px */
 
 @media (max-width: 600px) {
@@ -632,9 +601,11 @@ color: #567033;
         margin-left: -30px;
         margin-top: -30px;
     }
-    .image2 {
+  
+   .image2 {
        flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
     }
+  
     .image-container3 .image3, .image-container4 .image4 {
         flex-basis: 100%; /* Full width on smaller screens */
         max-width: 100%; /* Ensure max width is not limiting */
@@ -647,14 +618,22 @@ color: #567033;
 
 
 
-/* Screen size smaller than 480px */
+/* Screen size smaller than 425px */
 
 /* Media query for very small screens, like small smartphones */
 @media (max-width: 425px) {
   .home-text1 {
     font-size: 16px; /* Even smaller font size for very small screens */
   }
-  .image2 {
+  .text-content-container p {
+        font-size: 15px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .text-content-container1 p {
+        font-size: 15px; /* Adjusts font size for smaller screens */
+        padding: 0 10px; /* Adds padding on the sides for small screens */
+    }
+    .image2 {
        flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
     }
     .image-container3 .image3, .image-container4 .image4 {
@@ -690,6 +669,8 @@ color: #567033;
     }
 }
 
+
+
 /* Media Query for screens wider than 2560px */
 @media (min-width: 2560px) {
     .header-image-container img {
@@ -711,8 +692,9 @@ color: #567033;
         width: 23pc;
     }
 
-    .countdown-content{
+    .modal-content {
         font-size: 40px; /* Larger font size in modal and countdown elements */
+        width: 60%; /* Adjust modal width to better suit larger screens */
     }
 
     /* Enhancing header and menu readability */
@@ -760,50 +742,52 @@ color: #567033;
     }
 }
 
-
 </style>
-</head>
-<body>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+    <body>
+      <link rel="stylesheet" type="text/css" href="styles.css">
       <div class="header-container">
         <div class="header-image-container">
-            <img src="./Assests/Images/logo/ed-high-resolution-logo.png"  
-            alt="a figure of a couple in a wedding dress and suit, with the letters E and D beneath, below this the thrase Wedding 2025 is shown"
-             id="top-left-image" class="color-overlay">
+         <img src="../Assests/Images/logo/ed-high-resolution-logo.png"
+              alt="a figure of a couple in a wedding dress and suit, with the letters E and D beneath, below this the thr" id="top-left-image" class="color-overlay">
         </div>
         <div class="header-text-content">
           <div class="hamburger-menu">&#9776;</div> 
             <div class="top-menu">
               <ul>
                 <div class="menu-items">
-                <li><a class="top-menu-link" href="Public/Theday.html">The Day</a></li>
-                  <li><a href="./Public/getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
-                  <li><a href="./Public/Acommodation.html" class="top-menu-link">Accommodation</a></li>
-                  <li><a href="./Public/Inthearea.hmtl" class="top-menu-link">In The Area</a></li>
-                  <li><a href="./Public/RSVP.html" class="top-menu-link">RSVP</a></li>
-                  <li><a href="./Public/Gift.html" class="top-menu-link">Registry</a></li>
+                  <li><a href="../index.html" class="top-menu-link">Home</a></li>
+                  <li><a href="./getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
+                  <li><a href="./Acommodation.html" class="top-menu-link">Accomodation</a></li>
+                  <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In The Area</a></li>
+                  <li><a href="./RSVP.html" class="top-menu-link">RSVP</a></li>
+                  <li><a href="./Gift.html" class="top-menu-link">Registry</a></li>
                 </div>
               </ul>
             </div>
-          <div id="myModal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-                <ul>
-                  <li><a href="Public/Theday.html">The Day</a></li>
-                  <li><a href="./Public/getting-there-open-site.html">Getting There</a></li>
-                  <li><a href="./Public/Acommodation.html">Accommodation</a></li>
-                  <li><a href="./Public/Inthearea.hmtl">In The Area</a></li>
-                  <li><a href="./Public/RSVP.html">RSVP</a></li>
-                  <li><a href="./Public/Gift.html">Registry</a></li>
-                </ul>
-              </div>
-            </div>
           </div>
-         </div>
-       </div>
-     </div>
-  <script>
-    $(document).ready(function(){
+        </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./getting-there-open-site.html">Getting There</a></li>
+            <li><a href="./Acommodation.html">Accommodation</a></li>
+            <li><a href="./Inthearea.hmtl">In The Area</a></li>
+            <li><a href="./RSVP.html">RSVP</a></li>
+            <li><a href="./Gift.html">Registry</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div>
+  </div>
+        <script>
+       $(document).ready(function(){
     // Function to adjust layout for responsive behavior
     function adjustLayout() {
         // This function can contain responsive adjustments unrelated to the modal
@@ -836,138 +820,75 @@ color: #567033;
         adjustLayout(); // Adjust the layout when the window is resized
     });
 });
-
-   </script>
-</div>  
-  <div class="image-container">
-   <div class="image">
-      <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT.jpg" alt="Redwood forest with sunlight filtering through"></div>
-    <div class="image">
-      <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-2.jpg" alt="Image 2"></div>
-    <div class="image">
-      <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-3.jpg" alt="Image 3"></div>
-    <div class="image">
-      <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-4.jpg" alt="Image 4"></div>
-    <div class="image">
-      <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-5.jpg" alt="Image 5"></div>
-    <div class="image">
-      <img src="Assests/Images/trees/redwood_trees-wallpaper-2560x720-EDIT-6.jpg" alt="Image 6"></div>
-  </div>
-  <div class="text-content-container">
-    <h3>Welcome!</h3>
-      <p>We're so excited to share our wedding website with you. Consider this your official guide to our wedding day and the place to find accommodation recommendations, travel instructions, information about the day and the RSVP form.</p>
-      <P>Please submit your response by the 1st January 2025. Thanks!</P>
-      <p>We can't wait to celebrate with you!</p>
-        </div>
-</div>
-</div>
+         </script>
+      </div>
+      </div>
+      </div> 
+      <div class="text">
     </div>
-  </div>
-<script>
-   function update_countdown() {
-  var d = new Date();
-  var e = new Date("July 19, 2025 14:00 GMT");
-	//var e = new Date("July 19, 2025 18:07 GMT"); // TEST DATE AND TIME
-	var diff = e-d;  
-	
-	if (diff < 0) {
-		// IF WEDDING IN THE PAST
-		var diff = d-e;
-		var years = parseInt(diff/31557600000); // YEARS
-		var remain =  (diff-(years*31557600000));	
-		var days = parseInt(remain/86400000); // DAYS	
-  		remain =  (remain-(days*86400000));	
-  		var hours = parseInt(remain/3600000); // HOURS
-  		remain = remain-(hours*3600000); 
-  		var mins = Math.round(remain/60000);
-  	
-		var str = '';
-		if (years > 0) {
-			str += years+' year';
-			if (years != 1) {
-				str+= 's';
-			}
-		}
-		if (days > 0) {
-    			str += ' '+days+' day';
-      		if (days != 1) {
-      			str += 's';
-      		}
-		}
-		if (hours > 0) {
-  		    str += ' '+hours+ ' hour';
-      		if (hours != 1) {
-      			str += 's';
-      		}
-		}
-		str += ' '+mins+' minute';
-		if (mins != 1) {
-			str += 's';
-		}
-		
-		$('#countdown-intro').html('We have been married for');
-		$('#countdown').html(str);
-	}
-	else {	
-		// IF IN THE FUTURE		
-		var days = parseInt(diff/86400000); // DAYS	
-  	var remain =  (diff-(days*86400000));	
-  	var hours = parseInt(remain/3600000);
-  	remain = diff-( (days*86400000)+(hours*3600000) );
-  	var mins = Math.round(remain/60000);
-  	
-		var str = '';
-		if (days > 0) {
-    	str += days+' day';
-  		if (days != 1) {
-  			str += 's';
-  		}
-		}
-		if (hours > 0) {
-  		str += ' '+hours+ ' hour';
-  		if (hours != 1) {
-  			str += 's';
-  		}
-		}
-		str += ' '+mins+' minute';
-		if (mins != 1) {
-			str += 's';
-		}
-		
-  	$('#countdown').html(str);
-	}
-}
-
-$(document).ready(function(){
-  
-  update_countdown();
-  
-  setInterval(function () {
-    update_countdown();
-  }, 30000);  
-})
-</script>
-</div>
-</div>
-<div class="image-container2">
-  <div class="image2">
-    <img src="Assests/Images/david and emma/ED2.jpeg" alt="Redwood forest with sunlight filtering through"></div>
-  <div class="image2">
-    <img src="Assests/Images/david and emma/ed4.jpeg" alt="Image 2"></div>
-  <div class="image2">
-    <img src="Assests/Images/david and emma/ed9.jpg" alt="Image 3"></div>
-  <div class="image2">
-    <img src="Assests/Images/david and emma/ed13.jpeg" alt="Image 4"></div>
-  <div class="image2">
-    <img src="Assests/Images/david and emma/Ed6.jpeg" alt="Image 5"></div>
-  <div class="image2">
-    <img src="Assests/Images/david and emma/ED3.jpeg" alt="Image 6"></div>
-  </div>
-<div class="text-content-container1">
-  <h3>19 July 2025</h3>
-<div class="countdown-content" id="countdown"></div>
-</div>
-  </div>
-  </div>
-</div>
+      <div class="image-container">
+       <div class="image">
+          <img src="../Assests/Images/trees/Thin Homepage image of trees.jpg" alt="Redwood forest with sunlight filtering through"></div>
+        <div class="image">
+          <img src="../Assests/Images/trees/Thin Two woods pagoda.jpg" alt="Image 2"></div>
+        <div class="image">
+          <img src="../Assests/Images/trees/Thin medow.webp" alt="Image 3"></div>
+        <div class="image">
+          <img src="../Assests/Images/trees/Thin Two-Woods-Woodland.jpg" alt="Image 4"></div>
+        <div class="image">
+          <img src="../Assests/Images/trees/Thin Redwoods sign.jpg" alt="Image 5"></div>
+        <div class="image">
+          <img src="../Assests/Images/trees/Thin two woods bluebells.jpg" alt="Image 6"></div>
+        </div>
+      <div class="text-content-container">
+        <h3> The Venue</h3>
+          <p>Two Woods Estate</p>
+          <p>Black Gate Ln, Pulborough RH20 1DD</p> 
+          <p>Two Woods Estate is located in West Sussex, just beyond the outskirts of Pulborough. Part of the day will take place in the woods, so with this in mind, please wear appropriate footwear!</p>
+          <p>There will be camping facilities available on site for Saturday night, please bring your own tent if you would like to stay.</p>
+          <p>We're excited for you to join us here!</p>
+            </div>
+    </div>
+      <div class="image-container2">
+        <div class="image">
+           <img src="../Assests/Images/david and emma/Fancy dress.jpeg" alt="Redwood forest with sunlight filtering through"></div>
+        <div class="image">
+          <img src="../Assests/Images/david and emma/fake preposal.jpg" alt="Image 2"></div>
+        <div class="image">
+          <img src="../Assests/Images/david and emma/xmas dinner.jpeg" alt="Image 3"></div>
+        <div class="image">
+          <img src="../Assests/Images/david and emma/Heathrow.JPG" alt="Image 4"></div>
+        <div class="image">
+          <img src="../Assests/Images/david and emma/Kiss taj.jpeg" alt="Image 5"></div>
+        <div class="image">
+          <img src="../Assests/Images/david and emma/E&D fishtale.jpeg" alt="Image 6"></div>
+      </div>
+      <div class="text-content-container">
+        <h3>The Ceremony</h3>
+        <p>2:00 pm - The Redwoods</p>
+        <p>Kindly take your seats by 1:45pm.</p>
+        <p>For those who need it, buggies will shuttle between the main building and the woodland.</p>
+        <p>The ceremony will be followed by drinks and games in the meadow, dinner and dancing into the night.</p>
+        <p>If it looks like it might be wet, please bring an umbrella just in case!</p>
+        <p>Once the fun is done, carriages at 11.30</P> 
+        <p>Local taxi numbers: South Down Taxis 01798 874111.  Sue's Private hire 07918137066</p> 
+        <p>(These may need to be pre-booked due to demand)</p>
+      </div>
+        </div>
+    </div>
+    <div class="image-container2">
+      <div class="image">
+         <img src="../Assests/Images/david and emma/Emma Taj.jpeg" alt="Redwood forest with sunlight filtering through"></div>
+      <div class="image">
+        <img src="../Assests/Images/david and emma/Eifel.jpeg" alt="Image 2"></div>
+      <div class="image">
+        <img src="../Assests/Images/david and emma/D trek.jpeg" alt="Image 3"></div>
+      <div class="image">
+        <img src="../Assests/Images/david and emma/Dress up.jpeg" alt="Image 4"></div>
+      <div class="image">
+        <img src="../Assests/Images/david and emma/morning mountains.jpeg" alt="Image 5"></div>
+      <div class="image">
+        <img src="../Assests/Images/david and emma/flight.jpeg" alt="Image 6"></div>
+    </div>
 </body>
+</html>
