@@ -209,13 +209,13 @@ body {
 /* Hamburger */
 
 .hamburger-menu {
+  display: none; /* Hidden by default */
     font-size: 40px; /* Icon size */
     cursor: pointer; /* Indicates it's clickable */
     color: #567033; 
     display: none; /* Initially hidden, shown on smaller screens */
     justify-content: flex-end; /* Align menu items to the right */
     align-items: right !important;
-    width: 100%;
 }
 
 /* google sheet container */
@@ -374,19 +374,6 @@ body {
 }
 
 
-/* Screen size larger than 1024px */
-
-@media (min-width: 1024px) {
-    .header-image-container img {
-        max-width: 200px; /* Larger image on larger screens */
-    }
-
-    /* Adjust padding-top of body based on the new header height */
-    body {
-        padding-top: 210px; /* Adjust based on actual header height */
-    }
-}
-
 
 /* Screen size larger than 769px */
 
@@ -395,6 +382,10 @@ body {
   .image img {
       min-height: 500px; /* increases the height of the images on larger screens */
   }
+  .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
+    }
 }
 
 
@@ -403,6 +394,10 @@ body {
     .image {
         width: auto; /* Auto width for larger screen images */
         height: 100%; /* Full height */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
     }
 }
 
@@ -421,6 +416,10 @@ body {
   .google-sheet iframe {
     width: 100%; /* Ensure iframe takes full width of the google-sheet div */
   }
+  .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
+    }
 }
 
 
@@ -441,12 +440,6 @@ body {
     }
     .menu-items {
         display: none; /* Hide menu items, show hamburger menu */
-}
-    }
-
-@media (max-width: 768px) {
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
     }
     .hamburger-menu {
         display: block; /* Show hamburger icon on smaller screens */
@@ -457,6 +450,10 @@ body {
   .image2 {
     flex-basis: calc(33.33% - 6px); /* Adjusts the base width for smaller screens */
   }
+  .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
+    }
 }
 
 /* Background image for smaller screens */
@@ -469,6 +466,10 @@ body {
     .header-container {
         position: relative;
         z-index: 30; /* Ensures header is above everything else */
+    }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
     }
      .hamburger-menu {
       display: flex; /* Hidden by default */
@@ -521,6 +522,79 @@ body {
     .google-sheet iframe {
         height: auto; /* Auto height */
     }
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
+    }
+
+}
+
+/* Styles for larger screens (above 1024px) remain unchanged */
+@media (min-width: 1025px) {
+    .header-image-container img {
+        max-width: 200px; /* Presumably larger image on larger screens */
+        height: auto;
+    }
+  }
+
+
+
+/* For larger screens, adjust the size of the header image */
+@media (min-width: 1024px) {
+    .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
+    }
+  }
+  
+  /* Screen size smaller than 768px */
+
+@media (max-width: 768px) {
+  .header-image-container img {
+        max-width: 200px; /* Larger image on larger screens */
+        height: auto;
+    }
+}
+/* Media query for screens up to 1090px wide */
+@media (max-width: 1090px) {
+    .header-image-container img {
+        max-width: 190px; /* Appropriate size for screens smaller than 1024px */
+        height: auto;
+    }
+  }
+
+
+  @media (max-width: 1150px) {
+    .header-image-container img {
+        max-width: 190px; /* Appropriate size for screens smaller than 1024px */
+        height: auto;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+    }
+
+    body {
+        padding-top: 25px; /* Adjust based on smaller header image height */
+    }
+    .hamburger-menu {
+        display: block; /* Show on smaller screens */
+        position: absolute;  /* Absolute positioning to place it specifically */
+        top: 20px;  /* 10 pixels above the top boundary of the container */
+        right: 20px;  /* 10 pixels to the right of the right boundary of the container */
+        display: block;
+        color: #567033;
+    }
+    .responsive-box-left, .responsive-box-right {
+     z-index: 1; 
+    }
 }
 
 
@@ -545,6 +619,7 @@ body {
                   <li><a href="./getting-there-open-site.html" class="top-menu-link">Getting There</a></li>
                   <li><a href="./Acommodation.html" class="top-menu-link">Accommodation</a></li>
                   <li><a href="./Inthearea.hmtl.html" class="top-menu-link">In The Area</a></li>
+                  <li><a href="./Gift.html" class="top-menu-link">Registry</a></li>
                   </div>
                   </ul>
               </div>
@@ -559,6 +634,7 @@ body {
                     <li><a href="./getting-there-open-site.html">Getting There</a></li>
                     <li><a href="./Acommodation.html">Accommodation</a></li>
                     <li><a href="./Inthearea.hmtl">In The Area</a></li>
+                    <li><a href="./Gift.html">Registry</a></li>
                   </ul>
                 </div>
         </div>
